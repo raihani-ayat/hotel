@@ -1,0 +1,84 @@
+
+<ion-content [fullscreen]="true" >
+
+  <app-header></app-header>
+
+  <ion-grid>
+    <ion-row >
+      <ion-col >
+        <ion-card>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col >
+                  <div class="ion-title-wrapper">
+                    <ion-title>Welcome to the Morocco.bed</ion-title>
+                  </div>
+
+                  <ion-item>
+                    <ion-label>First Name</ion-label>
+                    <ion-input placeholder="First Name" ></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label>Last Name</ion-label>
+                    <ion-input placeholder="Last Name" ></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label>Country</ion-label>
+                    <ion-input placeholder="Country" ></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label>Email</ion-label>
+                    <ion-input placeholder="Email" type="email"></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label>Password</ion-label>
+                    <ion-input placeholder="Password" type="password"></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label>Confirm password</ion-label>
+                    <ion-input placeholder="Confirm password" type="password"></ion-input>
+                  </ion-item>
+
+                  <div class="rules-wrapper"><a href="#" class="rules"> By signing up, I agree to the Terms and Conditions. I also acknowledge the Privacy Statement located in the Privacy Center.</a></div>
+
+                  <div class="sign-up-button-wrapper">
+                    <ion-button size="large" class="sign-up-button">Sign Up</ion-button>
+                  </div>
+
+
+                </ion-col>
+
+              </ion-row>
+
+            </ion-grid>
+
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center" >
+      <div class="or-socials">
+        Or Sign in using socials
+     </div>
+    </ion-row>
+     <ion-row>
+         <div class="socials">
+          <a class="social"><span><ion-icon name="logo-facebook"></ion-icon></span></a>
+          <a class="social"><span><ion-icon name="logo-google"></ion-icon></span></a>
+        </div>
+    </ion-row>
+  </ion-grid>
+
+  <app-footer></app-footer>
+
+
+
+</ion-content>

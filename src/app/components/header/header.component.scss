@@ -1,0 +1,78 @@
+
+header{
+  width: 100%;
+  position: absolute;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 0px;
+  z-index: 10;
+  transition: width 2s linear 1s;
+  text-align: left;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+header .container{
+  box-sizing: border-box;
+  padding: 0px 16px;
+  margin: 0px auto 3rem;
+  position: relative;
+}
+
+.container .wrapper{
+  display: flex;
+  align-items: center;
+  margin: 0px auto;
+}
+
+.wrapper .logo{
+  display: block;
+  margin-right: 65px;
+  text-decoration: none;
+  text-align: left;
+  color: #0f0f0f;
+  font-weight: 600;
+
+}
+
+.extreme-left{
+  text-align: end;
+}
+
+.left-wrapper{
+  margin-left: 0px auto;
+  padding: 0px 0px 0px 65px;
+  white-space: nowrap;
+}
+
+nav{
+  white-space: nowrap;
+}
+
+.sign-up{
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #0f0f0f;
+
+}
+
+.separator{
+  display: inline-block;
+  height: 1rem;
+  width: 1px;
+  margin: 0px 8px;
+  vertical-align: middle;
+  background-color: #0f0f0f;
+  white-space: inherit;
+}
+
+.sign-in{
+  display: inline-block;
+  text-decoration: none;
+  white-space: inherit;
+  color: #0f0f0f;
+
+}
+

@@ -1,27 +1,93 @@
-#container {
-  text-align: center;
+ion-content{
+  --background: #F6F3F1;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.booking-card{
+  padding: auto;
+  margin: 5rem auto 3rem;
+  background-color: #FEFDFD;
+  height: fit-content;
+  max-width: 1000px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+.booking-card-header{
+  color: #0f0f0f;
+  text-align: left;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
 
-  color: #8c8c8c;
+}
 
+.calendar-icon{
+  color: #0f0f0f;
+  margin-right: 5px;
+}
+
+ion-item{
+  --background:#FEFDFD;
+  --color:#0f0f0f;
+
+}
+
+ion-datetime{
+  --color:black;
+}
+
+.room{
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding: auto;
+ --color: #0f0f0f;
+ --border-color:#0f0f0f;
+ --border-width:1px;
+ --background-activated:#0f0f0f;
+ --color-activated:white;
+}
+
+.book{
+  margin-top: 2rem;
+  padding: auto;
+  --background:#0f0f0f;
+  --background-activated:white;
+ --color-activated:#0f0f0f;
+
+}
+
+ion-title{
+  color: #0f0f0f;
+  text-align: left;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+  margin: 25px 0;
+
+}
+
+ion-slides{
+  padding: 0;
+  margin: auto;
+}
+
+ion-slide{
+  max-width: 600px;
+  width: 600px;
+  height: 550px;
+  padding: 0;
   margin: 0;
 }
-
-#container a {
-  text-decoration: none;
+.caroussel-card{
+  width: 600px;
+  height: 550px;
 }
+
+img{
+  width: 600px;
+  height: 400px;
+  object-fit:fill;
+  padding: 0;
+  margin: 0;
+
+}
+
+

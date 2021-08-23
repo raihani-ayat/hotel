@@ -1,0 +1,95 @@
+ion-content{
+  --background: #F6F3F1;
+
+}
+
+
+ion-card{
+  padding: auto;
+  margin: 6rem auto;
+  background-color: #FEFDFD;
+  height: fit-content;
+  max-width: 700px;
+}
+
+.ion-title-wrapper{
+  text-align: start;
+
+}
+
+ion-title{
+  color: #0f0f0f;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+  padding: 0;
+}
+
+
+ion-item{
+  --background: #FEFDFD;
+  margin: 20px 0;
+  padding: 0;
+  color: #0f0f0f;
+  max-width: 350px;
+  text-align: start;
+}
+
+
+
+.sign-up-button-wrapper{
+  text-align: center;
+  margin-top: 2rem;
+}
+.sign-up-button{
+  --background:#0f0f0f;
+}
+
+.rules-wrapper{
+  text-align: start;
+  padding: auto 0;
+  margin-top: 5px;
+}
+
+.rules{
+  color: #363636;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.or-socials{
+  color: #363636;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 16px;
+  margin: 20px auto;
+  padding: auto auto;
+}
+
+.socials{
+  margin: 10px auto;
+  text-align: center;
+}
+
+.social{
+  color: #0f0f0f;
+  font-size: 40px;
+  padding: 10px;
+}
+
+.no-account-wrapper{
+  text-align: center;
+}
+
+.no-account-wrapper p{
+  color: #363636;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 16px;
+  margin: 10px auto;
+}
+
+
+
+
+
+

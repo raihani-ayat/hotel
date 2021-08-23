@@ -1,20 +1,153 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" >
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <app-header></app-header>
+
+  <ion-grid>
+    <ion-row >
+      <ion-col  class="ion-align-self-center" col-12 col-xl-2 col-lg-3 col-md-4 >
+        <ion-card class="booking-card">
+          <ion-card-header class="booking-card-header">
+            <span class="calendar-icon"><ion-icon name="calendar-clear-outline"></ion-icon></span>
+            Book a stay
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Check-in</ion-label>
+                    <ion-datetime placeholder="Check-in"></ion-datetime>
+                  </ion-item>
+                </ion-col>
+
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Check-out</ion-label>
+                    <ion-datetime placeholder="Check-out"></ion-datetime>
+                  </ion-item>
+                </ion-col>
+
+                <ion-col>
+                  <ion-button fill="outline" expand="block"  class="room" (click)="OpenPopover()">1 Room, 1 Person </ion-button>
+                </ion-col>
+
+                <ion-col>
+                  <ion-button href="/results" fill="solid"  expand="block" class="book"> Book </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col  col-12 col-xl-2 col-lg-3 col-md-4>
+        <ion-title>Our services</ion-title>
+
+          <ion-slides pager="true">
+
+            <ion-slide>
+              <ion-card class="caroussel-card">
+                <img src="../assets/spaa.jpg">
+                <ion-card-header>
+                  <ion-card-subtitle>Destination</ion-card-subtitle>
+                  <ion-card-title>Madison, WI</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
+                </ion-card-content>
+              </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+              <ion-card class="caroussel-card">
+                <img src="../assets/spa2.jpg">
+                <ion-card-header>
+                  <ion-card-subtitle>Destination</ion-card-subtitle>
+                  <ion-card-title>Madison, WI</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
+                </ion-card-content>
+              </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+              <ion-card class="caroussel-card">
+                <img src="../assets/spa3.jpg">
+                <ion-card-header>
+                  <ion-card-subtitle>Destination</ion-card-subtitle>
+                  <ion-card-title>Madison, WI</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
+                </ion-card-content>
+              </ion-card>
+            </ion-slide>
+
+          </ion-slides>
+    </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12 col-xl-2 col-lg-3 col-md-4>
+        <ion-title>Our surroundings</ion-title>
+        <ion-slides pager="true">
+
+          <ion-slide>
+            <ion-card class="caroussel-card">
+              <img src="../assets/tge3.jpg">
+              <ion-card-header>
+                <ion-card-subtitle>Destination</ion-card-subtitle>
+                <ion-card-title>Madison, WI</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+            <ion-card class="caroussel-card">
+              <img src="../assets/tge2.jpg">
+              <ion-card-header>
+                <ion-card-subtitle>Destination</ion-card-subtitle>
+                <ion-card-title>Madison, WI</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+            <ion-card class="caroussel-card">
+              <img src="../assets/TGE.jpg">
+              <ion-card-header>
+                <ion-card-subtitle>Destination</ion-card-subtitle>
+                <ion-card-title>Madison, WI</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+
+        </ion-slides>
+    </ion-col>
+    </ion-row>
+
+
+
+
+</ion-grid>
+
+<app-footer></app-footer>
+
+
+
 </ion-content>

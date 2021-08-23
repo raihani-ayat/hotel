@@ -5,14 +5,17 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-
+import { ComponentsModule } from '../components/components.module';
+import { BookpopoverPageModule } from '../bookpopover/bookpopover.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    ComponentsModule,
+    BookpopoverPageModule
   ],
   declarations: [HomePage]
 })

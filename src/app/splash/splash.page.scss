@@ -1,0 +1,30 @@
+ion-content{
+  --background: #F6F3F1;
+}
+
+#container {
+  background-color: #F6F3F1;
+  color: #0f0f0f;
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transition: ease-in-out 2s;
+
+
+}
+
+ @-webkit-keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}@keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}
+
+#container strong {
+ -webkit-animation:tracking-in-expand 2s cubic-bezier(.215,.61,.355,1.000) both;animation:tracking-in-expand 2s cubic-bezier(.215,.61,.355,1.000) both;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 20px;
+  line-height: 26px;
+
+}
+
+
+

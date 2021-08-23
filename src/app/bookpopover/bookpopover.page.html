@@ -1,0 +1,53 @@
+
+<ion-content >
+  <ion-grid>
+    <form [formGroup]="myForm">
+      <div *ngFor="let control of myForm.controls | keyvalue">
+        <ion-row>
+          <ion-col> {{control.key}}</ion-col>
+          <ion-icon (click)="removeControl(control)" name="close-circle"></ion-icon>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label class="label">Adults</ion-label>
+              <ion-select value="Adults" interface="action-sheet" [formControlName]="'adults'+control.key">
+                <ion-select-option value="enable">1</ion-select-option>
+                <ion-select-option value="mute">2</ion-select-option>
+                <ion-select-option value="mute_week">3</ion-select-option>
+                <ion-select-option value="mute_year">4+</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label class="label">Kids</ion-label>
+              <ion-select value="Adults" interface="action-sheet" [formControlName]="'kids'+control.key">
+                <ion-select-option value="enable">0</ion-select-option>
+                <ion-select-option value="mute">1</ion-select-option>
+                <ion-select-option value="mute_week">2</ion-select-option>
+                <ion-select-option value="mute_year">3</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </div>
+    </form>
+
+
+    <div class="divider"></div>
+
+    <ion-button fill="clear" class="add-room-button" (click)="addControl()"><ion-icon name="add-outline"></ion-icon>Add a room</ion-button>
+    <ion-row class="button-row">
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-button  class="close-button" (click)="ClosePopover()">Done</ion-button>
+      </ion-col>
+      <ion-col></ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-content>

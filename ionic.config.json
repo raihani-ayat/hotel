@@ -1,5 +1,7 @@
 {
   "name": "hotel",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

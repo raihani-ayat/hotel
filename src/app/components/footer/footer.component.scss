@@ -1,0 +1,71 @@
+
+.container {
+    overflow: hidden;
+    margin-top: 100px;
+    background: #1e1e1e;
+    color: #FEFDFD !important;
+    margin-bottom: 0;
+    padding-bottom: 0
+}
+
+small {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: calc(12px + (15 - 12) * ((100vw - 360px) / (1600 - 360))) !important
+}
+
+.bold-text {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #FEFDFD;
+  }
+
+.mt-55 {
+    margin-top: calc(50px + (60 - 50) * ((100vw - 360px) / (1600 - 360))) !important
+}
+
+h3 {
+    color: #FEFDFD;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: calc(34px + (40 - 34) * ((100vw - 360px) / (1600 - 360))) !important
+}
+
+.social {
+  font-size: calc(34px + (40 - 34) * ((100vw - 360px) / (1600 - 360))) !important
+}
+
+ion-icon{
+  margin-right: 20px;
+  color: #FEFDFD;
+}
+
+.list-item{
+  text-decoration: none;
+  color: #FEFDFD;
+}
+
+.rights {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important
+}
+
+.start-col{
+  margin: auto 10px;
+}
+
+.center-col{
+  text-align: center;
+}
+
+.end-col{
+  margin: auto 10px;
+  padding: auto;
+  min-width:230px ;
+}
+
+@media screen and (min-width: 480px) {
+  .start-col {
+    text-align: center;
+    margin-top: 0;
+  }
+}
+
+

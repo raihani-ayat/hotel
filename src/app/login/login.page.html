@@ -1,0 +1,69 @@
+
+<ion-content [fullscreen]="true" >
+
+  <app-header></app-header>
+
+  <ion-grid>
+    <ion-row >
+      <ion-col >
+        <ion-card>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col class="start-col">
+                  <div class="ion-title-wrapper">
+                    <p class="title">Welcome to the Morocco.bed</p>
+                  </div>
+
+                  <ion-item>
+                    <ion-label>Email</ion-label>
+                    <ion-input placeholder="Email" type="email"></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label>Password</ion-label>
+                    <ion-input placeholder="Password" type="password"></ion-input>
+                  </ion-item>
+
+                  <div class="sign-in-button-wrapper">
+                    <ion-button class="sign-in-button">Sign In</ion-button>
+                  </div>
+
+
+
+                  <div class="password-forgotten-wrapper"><a href="#" class="password-forgotten"> Password forgotten?</a></div>
+
+                   <div class="or-socials">
+                      Or Sign in using socials
+                   </div>
+
+                   <div class="socials">
+                    <a class="social"><span><ion-icon name="logo-facebook"></ion-icon></span></a>
+                    <a class="social"><span><ion-icon name="logo-google"></ion-icon></span></a>
+                   </div>
+
+                </ion-col>
+
+                <ion-col col-12 col-xl-2 col-lg-3 col-md-4>
+                    <ion-img src="../assets/login-side.jpg"></ion-img>
+                    <div class="no-account-wrapper">
+                      <p>Don't have an account yet?</p>
+                    </div>
+                    <ion-button size="large" expand="block" class="sign-up-button">Sign Up</ion-button>
+
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <app-footer></app-footer>
+
+
+
+</ion-content>
