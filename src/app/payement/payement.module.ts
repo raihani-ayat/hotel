@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { PayementPageRoutingModule } from './payement-routing.module';
+import { ComponentsModule } from '../components/components.module';
 
 import { PayementPage } from './payement.page';
 
@@ -13,7 +14,8 @@ import { PayementPage } from './payement.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    PayementPageRoutingModule
+    PayementPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [PayementPage]
 })

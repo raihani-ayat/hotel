@@ -1,0 +1,95 @@
+ion-content{
+  --background: #F6F3F1;
+
+}
+
+.step-container{
+  box-sizing: border-box;
+  padding: 0px 16px;
+  margin: 5rem 1rem 2rem;
+  position: relative;
+}
+
+.step-title{
+  color: #0f0f0f;
+  text-align: left;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 16px;
+}
+
+.summary-card{
+  padding: auto;
+  margin: 1rem auto 3rem;
+  background-color: #FEFDFD;
+  height: fit-content;
+  max-width: 1000px;
+}
+
+.summary-card-header{
+  color: #0f0f0f;
+  text-align: left;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+}
+
+.summary-card  ion-input{
+  border: #0f0f0f 1px solid;
+  border-radius: 10px;
+  margin: .5rem auto;
+  color: #0f0f0f;
+  padding: auto;
+}
+
+.calendar-icon{
+  color: #0f0f0f;
+  margin-right: 5px;
+}
+
+ion-list{
+  background: #FEFDFD;
+  margin-top: 20px;
+}
+
+ion-list h3{
+  color: #0f0f0f;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+}
+
+ion-list p{
+  color: #0f0f0f;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 14px;
+}
+
+.payment-button-wrapper{
+  text-align: center;
+  margin: 1rem auto;
+}
+
+
+.book{
+  margin-top: 2rem;
+  padding: auto;
+  --background:#0f0f0f;
+  --background-activated:white;
+ --color-activated:#0f0f0f;
+
+}
+
+.cancelation-title{
+  color: #0f0f0f;
+  text-align: left;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+  margin: auto 1rem;
+}
+
+.terms{
+  color: #0f0f0f;
+  text-align: left;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 14px;
+  margin: .5rem;
+}
+

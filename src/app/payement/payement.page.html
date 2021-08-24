@@ -1,9 +1,110 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>payement</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
+  <app-header></app-header>
+
+  <div class="step-container">
+    <p class="step-title">Step two of two</p>
+    <ion-progress-bar color="light" value="1" ></ion-progress-bar>
+  </div>
+
+  <ion-grid>
+    <ion-card class="summary-card">
+      <ion-card-header class="summary-card-header">Summary of the reservation </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-row>
+            <ion-col>
+                <ion-label>
+                  <h3>Room 1</h3>
+                  <p>Suite 2</p>
+                </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label>
+                <h3>1000dh/night </h3>
+              </ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+                <ion-label>
+                  <h3>Room 2</h3>
+                  <p>Suite 4</p>
+                </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label>
+                <h3>1000dh/night</h3>
+              </ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+                <ion-label>
+                  <h3>Total</h3>
+                </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label>
+                <h3>2000dh/night x3</h3>
+                <p>6000dh</p>
+              </ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-button fill="solid"  expand="block" class="book" routerDirection="/results">Edit</ion-button>
+            </ion-col>
+          </ion-row>
+
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="summary-card">
+      <ion-card-header class="summary-card-header">
+        <ion-icon name="card-outline" class="calendar-icon"></ion-icon>Credit Card Details
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-col>
+            <ion-input placeholder="Card Number"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-input placeholder="CVS"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-input placeholder="Owner name"></ion-input>
+        </ion-row>
+        <ion-row>
+          <ion-input placeholder="Expiry date"></ion-input>
+        </ion-row>
+      </ion-card-content>
+
+    </ion-card>
+
+    <ion-label class="cancelation-title"><ion-icon name="newspaper-outline" class="calendar-icon"></ion-icon>Cancelation policy</ion-label>
+    <ion-row>
+      <div class="terms">
+        There is a credit card required for this reservation. Free cancellation before 11:59 PM local hotel time on 12 Aug 2021.
+        By clicking "Book Reservation," I agree to the, Site Usage Agreement,
+        Opens new window, and agree that Hilton will collect, use, share and transfer my information as set out in Hilton’s Global Privacy Statement, Opens new window.
+      </div>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col>
+        <ion-button fill="solid"  expand="block" class="book">Book reservation</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <app-footer></app-footer>
 
 </ion-content>

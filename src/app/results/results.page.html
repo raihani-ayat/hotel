@@ -2,8 +2,204 @@
 
 <app-header></app-header>
 
-    <p>Step one of two</p>
-    <ion-progress-bar value="0.5"></ion-progress-bar>
+  <div class="step-container">
+    <p class="step-title">Step one of two</p>
+    <ion-progress-bar color="light" value="0.5" ></ion-progress-bar>
+  </div>
+
+  <ion-grid>
+    <ion-row >
+      <ion-col  class="ion-align-self-center" col-12 col-xl-2 col-lg-3 col-md-4 >
+        <ion-card class="booking-card">
+          <ion-card-header class="booking-card-header">
+            <span class="calendar-icon"><ion-icon name="checkmark-done-outline"></ion-icon></span>
+            Results for
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Check-in</ion-label>
+                    <ion-datetime placeholder="Check-in"></ion-datetime>
+                  </ion-item>
+                </ion-col>
+
+                <ion-col>
+                  <ion-item>
+                    <ion-label position="floating">Check-out</ion-label>
+                    <ion-datetime placeholder="Check-out"></ion-datetime>
+                  </ion-item>
+                </ion-col>
+                </ion-row>
+
+              <ion-row>
+                <ion-label class="room-number">Room 1</ion-label>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label>
+                      <h3>Adults</h3>
+                      <p class="number">2</p>
+                    </ion-label>
+                  </ion-item>
+                </ion-col>
+
+                <ion-col>
+                  <ion-item>
+                    <ion-label>
+                      <h3>Kids</h3>
+                      <p class="number">0</p>
+                    </ion-label>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-label class="room-number">Room 2</ion-label>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label>
+                      <h3>Adults</h3>
+                      <p class="number">1</p>
+                    </ion-label>
+                  </ion-item>
+                </ion-col>
+
+                <ion-col>
+                  <ion-item>
+                    <ion-label>
+                      <h3>Kids</h3>
+                      <p class="number">0</p>
+                    </ion-label>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col>
+                  <ion-button  fill="solid"  expand="block" class="book"> Modifiy </ion-button>
+                </ion-col>
+              </ion-row>
+
+            </ion-grid>
+          </ion-card-content>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+      <ion-radio-group>
+        <p class="pick-title">Pick a room to see results</p>
+        <ion-row>
+          <ion-col>
+            <ion-item class="radio-item" >
+              <ion-label>Room 1</ion-label>
+              <ion-radio value="room1"></ion-radio>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item class="radio-item">
+              <ion-label>Room 2</ion-label>
+              <ion-radio value="room2"></ion-radio>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-radio-group>
+
+      <ion-list>
+      <ion-radio-group>
+                <ion-row>
+                  <ion-col>
+                    <ion-item >
+                      <ion-label>
+                        <h3>Suite 2 </h3>
+                        <p>1 king size bed</p>
+                        <h3>1000dh/night</h3>
+                      </ion-label>
+                      <ion-radio></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+
+                <ion-row>
+                  <ion-col>
+                    <ion-item>
+                      <ion-label>
+                        <h3>Suite 4 </h3>
+                        <p>1 king size bed</p>
+                        <h3>1000dh/night</h3>
+                      </ion-label>
+                      <ion-radio></ion-radio>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+
+
+      </ion-radio-group>
+    </ion-list>
+
+    <ion-card class="summary-card">
+      <ion-card-header class="summary-card-header">Summary of the reservation </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-row>
+            <ion-col>
+                <ion-label>
+                  <h3>Room 1</h3>
+                  <p>Suite 2</p>
+                </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label>
+                <h3>1000dh/night </h3>
+              </ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+                <ion-label>
+                  <h3>Room 2</h3>
+                  <p>Suite 4</p>
+                </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label>
+                <h3>1000dh/night</h3>
+              </ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+                <ion-label>
+                  <h3>Total</h3>
+                </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label>
+                <h3>2000dh/night x3</h3>
+                <p>6000dh</p>
+              </ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-button fill="solid"  expand="block" class="book" href="/payement">Go to payment</ion-button>
+            </ion-col>
+          </ion-row>
+
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ion-grid>
+
+
 
   <app-footer></app-footer>
 
