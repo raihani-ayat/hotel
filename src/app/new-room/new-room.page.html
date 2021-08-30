@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button autoHide="false"></ion-menu-button>
+      </ion-buttons>
+    <ion-title class="title">
+      NEW ROOM
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+      <ion-content >
+        <ion-grid >
+
+          <ion-card class="booking-card">
+            <ion-card-header class="booking-card-header">
+              <span class="calendar-icon"><ion-icon name="calendar-clear-outline"></ion-icon></span>
+              Add new room information
+            </ion-card-header>
+            <ion-card-content>
+
+                    <ion-item>
+                      <ion-label position="floating">Room N°</ion-label>
+                      <ion-input placeholder="number"></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                      <ion-label position="floating">Price</ion-label>
+                      <ion-input placeholder="price"></ion-input>
+                    </ion-item>
+
+
+                    <ion-item>
+                      <ion-label class="label">Max kids Age</ion-label>
+                      <ion-select value="Adults">
+                        <ion-select-option value="enable">1</ion-select-option>
+                        <ion-select-option value="mute">2</ion-select-option>
+                        <ion-select-option value="mute_week">3</ion-select-option>
+                        <ion-select-option value="mute_year">4+</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+
+                    <ion-item>
+                      <ion-label class="label">Room type</ion-label>
+                      <ion-select value="Adults">
+                        <ion-select-option value="enable">1</ion-select-option>
+                        <ion-select-option value="mute">2</ion-select-option>
+                        <ion-select-option value="mute_week">3</ion-select-option>
+                        <ion-select-option value="mute_year">4+</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+
+                    <ion-item>
+                      <ion-label class="label">Max capacity</ion-label>
+                      <ion-select value="Adults">
+                        <ion-select-option value="enable">1</ion-select-option>
+                        <ion-select-option value="mute">2</ion-select-option>
+                        <ion-select-option value="mute_week">3</ion-select-option>
+                        <ion-select-option value="mute_year">4+</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+
+                    <ion-item>
+                      <ion-label class="label">Description</ion-label>
+                      <ion-input placeholder="description"></ion-input>
+                    </ion-item>
+
+
+                    <ion-button href="/results" fill="solid"  expand="block" class="book"> Save </ion-button>
+
+            </ion-card-content>
+
+          </ion-card>
+
+        </ion-grid>
+        <app-footer></app-footer>
+
+      </ion-content>
+

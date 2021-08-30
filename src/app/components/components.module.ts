@@ -12,4 +12,6 @@ import { IonicModule } from '@ionic/angular';
   ],
   exports:[FooterComponent,HeaderComponent],
 })
-export class ComponentsModule { }
+export class ComponentsModule {
+}
+

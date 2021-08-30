@@ -1,7 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button autoHide="false"></ion-menu-button>
+      </ion-buttons>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content [fullscreen]="true" >
-
-  <app-header></app-header>
 
   <ion-grid>
     <ion-row >
@@ -17,12 +25,12 @@
 
                   <ion-item>
                     <ion-label>Email</ion-label>
-                    <ion-input placeholder="Email" type="email"></ion-input>
+                    <ion-input placeholder="Email" type="email" [(ngModel)]="user.email" ></ion-input>
                   </ion-item>
 
                   <ion-item>
                     <ion-label>Password</ion-label>
-                    <ion-input placeholder="Password" type="password"></ion-input>
+                    <ion-input placeholder="Password" type="password" [(ngModel)]="user.password"></ion-input>
                   </ion-item>
 
                   <div class="sign-in-button-wrapper">
@@ -49,7 +57,7 @@
                     <div class="no-account-wrapper">
                       <p>Don't have an account yet?</p>
                     </div>
-                    <ion-button size="large" expand="block" class="sign-up-button">Sign Up</ion-button>
+                    <ion-button size="large" expand="block" class="sign-up-button" href="/sign-up">Sign Up</ion-button>
 
                 </ion-col>
               </ion-row>

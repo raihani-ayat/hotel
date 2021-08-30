@@ -1,7 +1,15 @@
-
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button autoHide="false"></ion-menu-button>
+      </ion-buttons>
+    <ion-title class="title">
+      Sign up
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content [fullscreen]="true" >
 
-  <app-header></app-header>
 
   <ion-grid>
     <ion-row >
@@ -17,38 +25,38 @@
 
                   <ion-item>
                     <ion-label>First Name</ion-label>
-                    <ion-input placeholder="First Name" ></ion-input>
+                    <ion-input placeholder="First Name"  [(ngModel)]="user.firstName"></ion-input>
                   </ion-item>
 
                   <ion-item>
                     <ion-label>Last Name</ion-label>
-                    <ion-input placeholder="Last Name" ></ion-input>
+                    <ion-input placeholder="Last Name" [(ngModel)]="user.lastName" ></ion-input>
                   </ion-item>
 
                   <ion-item>
                     <ion-label>Country</ion-label>
-                    <ion-input placeholder="Country" ></ion-input>
+                    <ion-input placeholder="Country" [(ngModel)]="user.country" ></ion-input>
                   </ion-item>
 
                   <ion-item>
                     <ion-label>Email</ion-label>
-                    <ion-input placeholder="Email" type="email"></ion-input>
+                    <ion-input placeholder="Email" type="email" [(ngModel)]="user.email"></ion-input>
                   </ion-item>
 
                   <ion-item>
                     <ion-label>Password</ion-label>
-                    <ion-input placeholder="Password" type="password"></ion-input>
+                    <ion-input placeholder="Password" type="password" [(ngModel)]="user.password"></ion-input>
                   </ion-item>
 
                   <ion-item>
                     <ion-label>Confirm password</ion-label>
-                    <ion-input placeholder="Confirm password" type="password"></ion-input>
+                    <ion-input placeholder="Confirm password" type="password" ></ion-input>
                   </ion-item>
 
                   <div class="rules-wrapper"><a href="#" class="rules"> By signing up, I agree to the Terms and Conditions. I also acknowledge the Privacy Statement located in the Privacy Center.</a></div>
 
                   <div class="sign-up-button-wrapper">
-                    <ion-button size="large" class="sign-up-button">Sign Up</ion-button>
+                    <ion-button size="large" class="sign-up-button" >Sign Up</ion-button>
                   </div>
 
 

@@ -1,10 +1,16 @@
 <ion-header>
-  <app-header></app-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button autoHide="false"></ion-menu-button>
+      </ion-buttons>
+    <ion-title class="title">
+      Home
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" >
 
-
+<ion-content  >
   <ion-grid>
     <ion-row >
       <ion-col  class="ion-align-self-center" col-12 col-xl-2 col-lg-3 col-md-4 >
@@ -31,9 +37,54 @@
                 </ion-col>
 
                 <ion-col>
-                  <ion-button fill="outline" expand="block"  class="room" (click)="OpenPopover()">1 Room, 1 Person </ion-button>
+                  <ion-item>
+                    <ion-label class="label">Adults</ion-label>
+                    <ion-select value="Adults">
+                      <ion-select-option value="enable">1</ion-select-option>
+                      <ion-select-option value="mute">2</ion-select-option>
+                      <ion-select-option value="mute_week">3</ion-select-option>
+                      <ion-select-option value="mute_year">4+</ion-select-option>
+                    </ion-select>
+                  </ion-item>
                 </ion-col>
 
+                <ion-col>
+                  <ion-item>
+                    <ion-label class="label">Kids</ion-label>
+                    <ion-select value="Adults">
+                      <ion-select-option value="enable">1</ion-select-option>
+                      <ion-select-option value="mute">2</ion-select-option>
+                      <ion-select-option value="mute_week">3</ion-select-option>
+                      <ion-select-option value="mute_year">4+</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+
+                <ion-col>
+                  <ion-item>
+                    <ion-label class="label">Max kids Age</ion-label>
+                    <ion-select value="Adults">
+                      <ion-select-option value="enable">1</ion-select-option>
+                      <ion-select-option value="mute">2</ion-select-option>
+                      <ion-select-option value="mute_week">3</ion-select-option>
+                      <ion-select-option value="mute_year">4+</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+
+                <ion-col>
+                  <ion-item>
+                    <ion-label class="label">Room type</ion-label>
+                    <ion-select value="Adults">
+                      <ion-select-option value="enable">1</ion-select-option>
+                      <ion-select-option value="mute">2</ion-select-option>
+                      <ion-select-option value="mute_week">3</ion-select-option>
+                      <ion-select-option value="mute_year">4+</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
                 <ion-col>
                   <ion-button href="/results" fill="solid"  expand="block" class="book"> Book </ion-button>
                 </ion-col>

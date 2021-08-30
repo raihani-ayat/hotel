@@ -40,6 +40,26 @@ const routes: Routes = [
   {
     path: 'admin-home',
     loadChildren: () => import('./admin-home/admin-home.module').then( m => m.AdminHomePageModule)
+  },
+  {
+    path: 'new-room',
+    loadChildren: () => import('./new-room/new-room.module').then( m => m.NewRoomPageModule)
+  },
+  {
+    path: 'rooms',
+    loadChildren: () => import('./rooms/rooms.module').then( m => m.RoomsPageModule)
+  },
+  {
+    path: 'reservations',
+    loadChildren: () => import('./reservations/reservations.module').then( m => m.ReservationsPageModule)
+  },
+  {
+    path: 'user-reservations',
+    loadChildren: () => import('./user-reservations/user-reservations.module').then( m => m.UserReservationsPageModule)
+  },
+  {
+    path: 'new-reservation',
+    loadChildren: () => import('./new-reservation/new-reservation.module').then( m => m.NewReservationPageModule)
   }
 
 ];

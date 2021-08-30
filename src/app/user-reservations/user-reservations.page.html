@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button autoHide="false"></ion-menu-button>
+      </ion-buttons>
+    <ion-title class="title">
+      My reservations
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  <ion-grid >
+    <ion-searchbar></ion-searchbar>
+    <ion-list>
+      <ion-list-header>My bookings</ion-list-header>
+
+      <ion-item>
+        <ion-avatar>N°125</ion-avatar>
+        <ion-label>
+          <h3>10-10-2021 / 13-10-2021</h3>
+          <p>Suite 125</p>
+          <p>2 Adults 1 kid</p>
+          <p>TOTAL: 5000dh</p>
+          <p class="pending"> Pending</p>
+        </ion-label>
+        <ion-button><ion-icon name="close-outline"></ion-icon></ion-button>
+      </ion-item>
+
+      <ion-item>
+        <ion-avatar>N°125</ion-avatar>
+        <ion-label>
+          <h3>10-10-2021 / 13-10-2021</h3>
+          <p>Suite 125</p>
+          <p>2 Adults 1 kid</p>
+          <p>TOTAL: 5000dh</p>
+          <p class="confirmed">Confirmed</p>
+        </ion-label>
+        <ion-button><ion-icon name="trash-outline"></ion-icon></ion-button>
+      </ion-item>
+    </ion-list>
+
+  </ion-grid>
+
+<app-footer></app-footer>
+
+
+
+</ion-content>

@@ -1,3 +1,9 @@
+.title{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: white;
+}
+
+
 ion-content{
   --background: #F6F3F1;
 
@@ -5,11 +11,22 @@ ion-content{
 
 .booking-card{
   padding: auto;
-  margin: 5rem auto 3rem;
+  margin: 3rem auto 3rem;
   background-color: #FEFDFD;
   height: fit-content;
   max-width: 1000px;
+  ion-item{
+    --background:#FEFDFD;
+    --color:#0f0f0f;
+
+  }
+
+  ion-datetime{
+    --color:black;
+  }
 }
+
+
 
 .booking-card-header{
   color: #0f0f0f;
@@ -24,15 +41,7 @@ ion-content{
   margin-right: 5px;
 }
 
-ion-item{
-  --background:#FEFDFD;
-  --color:#0f0f0f;
 
-}
-
-ion-datetime{
-  --color:black;
-}
 
 .room{
   margin-top: 2rem;
