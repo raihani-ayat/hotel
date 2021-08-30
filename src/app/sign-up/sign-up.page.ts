@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-//import { AngularFireAuth } from 'angularfire2/auth';
 import { User } from '../models/user';
 import { Router } from '@angular/router';
-//import { AngularFirestoreCollection } from 'angularfire2/firestore';
 
 
 
