@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import {AngularFireModule} from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { Facebook } from '@ionic-native/facebook/ngx';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule,
     AngularFireAuthModule,AngularFireModule.initializeApp(environment.firebaseConfig)],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy,}],
+  providers: [Facebook,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

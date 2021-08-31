@@ -30,16 +30,16 @@
 
                   <ion-item>
                     <ion-label>Password</ion-label>
-                    <ion-input placeholder="Password" type="password" [(ngModel)]="user.password"></ion-input>
+                    <ion-input placeholder="Password" type="password" [(ngModel)]="password"></ion-input>
                   </ion-item>
 
                   <div class="sign-in-button-wrapper">
-                    <ion-button class="sign-in-button">Sign In</ion-button>
+                    <ion-button class="sign-in-button" (click)="login()">Sign In</ion-button>
                   </div>
 
 
 
-                  <div class="password-forgotten-wrapper"><a href="#" class="password-forgotten"> Password forgotten?</a></div>
+                  <div class="password-forgotten-wrapper" (click)="forgotPassword()"><a  class="password-forgotten"> Password forgotten?</a></div>
 
                    <div class="or-socials">
                       Or Sign in using socials

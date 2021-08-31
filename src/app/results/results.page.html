@@ -30,14 +30,14 @@
                 <ion-col>
                   <ion-item>
                     <ion-label position="floating">Check-in</ion-label>
-                    <ion-datetime placeholder="Check-in"></ion-datetime>
+                    <ion-datetime placeholder="Check-in">{{reservation.checkIn}}</ion-datetime>
                   </ion-item>
                 </ion-col>
 
                 <ion-col>
                   <ion-item>
                     <ion-label position="floating">Check-out</ion-label>
-                    <ion-datetime placeholder="Check-out"></ion-datetime>
+                    <ion-datetime placeholder="Check-out">{{reservation.checkOut}}</ion-datetime>
                   </ion-item>
                 </ion-col>
                 </ion-row>
@@ -48,7 +48,7 @@
                     <ion-label>
                       <h3>Adults</h3>
                     </ion-label>
-                    <ion-input value="2"></ion-input>
+                    <ion-input value="{{reservation.adults}}"></ion-input>
                   </ion-item>
                 </ion-col>
 
@@ -57,7 +57,7 @@
                     <ion-label>
                       <h3>Kids</h3>
                     </ion-label>
-                    <ion-input value="2"></ion-input>
+                    <ion-input value="{{reservation.kids}}"></ion-input>
                   </ion-item>
                 </ion-col>
               </ion-row>
@@ -66,24 +66,14 @@
               <ion-col>
                 <ion-item>
                   <ion-label class="label">Max kids Age</ion-label>
-                  <ion-select value="Adults">
-                    <ion-select-option value="enable">1</ion-select-option>
-                    <ion-select-option value="mute">2</ion-select-option>
-                    <ion-select-option value="mute_week">3</ion-select-option>
-                    <ion-select-option value="mute_year">4+</ion-select-option>
-                  </ion-select>
+                  <ion-input value="{{reservation.maxKidsAge}}"></ion-input>
                 </ion-item>
               </ion-col>
 
               <ion-col>
                 <ion-item>
                   <ion-label class="label">Room type</ion-label>
-                  <ion-select value="Adults">
-                    <ion-select-option value="enable">1</ion-select-option>
-                    <ion-select-option value="mute">2</ion-select-option>
-                    <ion-select-option value="mute_week">3</ion-select-option>
-                    <ion-select-option value="mute_year">4+</ion-select-option>
-                  </ion-select>
+                  <ion-input value="{{reservation.roomType}}"></ion-input>
                 </ion-item>
               </ion-col>
             </ion-row>
@@ -102,33 +92,18 @@
     </ion-row>
 
       <ion-list>
-      <ion-radio-group>
-                <ion-row>
+      <ion-radio-group [(ngModel)]="selected">
+                <ion-row *ngFor ="let result of results |async">
                   <ion-col>
                     <ion-item >
                       <ion-label>
-                        <h3>Suite 2 </h3>
-                        <p>1 king size bed</p>
-                        <h3>1000dh/night</h3>
+                        <h3>{{result.type}} </h3>
+                        <h3> {{result.price}} dh/night</h3>
                       </ion-label>
-                      <ion-radio></ion-radio>
+                      <ion-radio value="{{result.id}}"></ion-radio>
                     </ion-item>
                   </ion-col>
                 </ion-row>
-
-                <ion-row>
-                  <ion-col>
-                    <ion-item>
-                      <ion-label>
-                        <h3>Suite 4 </h3>
-                        <p>1 king size bed</p>
-                        <h3>1000dh/night</h3>
-                      </ion-label>
-                      <ion-radio></ion-radio>
-                    </ion-item>
-                  </ion-col>
-                </ion-row>
-
 
       </ion-radio-group>
     </ion-list>
@@ -167,7 +142,7 @@
 
           <ion-row>
             <ion-col>
-              <ion-button fill="solid"  expand="block" class="book" href="/payement">Go to payment</ion-button>
+              <ion-button fill="solid"  expand="block" class="book" (click)="payment()">Go to payment</ion-button>
             </ion-col>
           </ion-row>
 
