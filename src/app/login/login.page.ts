@@ -3,7 +3,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from '../models/user';
 import { Router } from '@angular/router';
 import { AuthServiceService } from '../Services/auth-service.service';
-import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 import { ToastController } from '@ionic/angular';
 import { AppComponent } from '../app.component';
 import { BookingService } from '../Services/booking.service';
@@ -62,46 +61,27 @@ export class LoginPage implements OnInit {
     }
   }
 
-  async forgotPassword() {
-    try {
-      const r = await this.fAuth.sendPasswordResetEmail(
-        this.user.email,
-      );
+  async validate(){
+    if(this.user.email===undefined || this.password===undefined){
       const toast = await this.toastController.create({
-        message: 'A reset link has been sent to your email box',
+        message: 'Please fill all the required fields',
         duration: 2000
       });
       toast.present();
-
-    } catch (err) {
-      console.error(err);
-      const toast = await this.toastController.create({
-        message: err,
-        duration: 2000
-      });
-      toast.present();
+    }else{
+      this.login();
     }
   }
 
- /* async fblogin() {
-
-    this.fb.login(['email'])
-      .then((response: FacebookLoginResponse) => {
-        this.onLoginSuccess(response);
-        console.log(response.authResponse.accessToken);
-      }).catch((error) => {
-        console.log(error);
-        alert('error:' + error);
-      });
+  async forgotPassword() {
+    this.router.navigateByUrl('/forgotten-password');
   }
 
-  onLoginSuccess(res: FacebookLoginResponse) {
-    const credential = this.fAuth.signInWithCredential..credential(res.authResponse.accessToken);
-    this.fAuth.signInWithCredential(credential)
-      .then((response) => {
-        this.router.navigate(['/home']);
-      });
+  googleAuth(){
+    this.auth.googleAuth();
+  }
 
-  }*/
-
+  facebookAuth(){
+    this.auth.facebookAuth();
+  }
 }

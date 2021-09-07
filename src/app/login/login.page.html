@@ -34,7 +34,7 @@
                   </ion-item>
 
                   <div class="sign-in-button-wrapper">
-                    <ion-button class="sign-in-button" (click)="login()">Sign In</ion-button>
+                    <ion-button class="sign-in-button" (click)="validate()">Sign In</ion-button>
                   </div>
 
 
@@ -46,8 +46,8 @@
                    </div>
 
                    <div class="socials">
-                    <a class="social"><span><ion-icon name="logo-facebook"></ion-icon></span></a>
-                    <a class="social"><span><ion-icon name="logo-google"></ion-icon></span></a>
+                    <a (click)="facebookAuth()" class="social"><span><ion-icon name="logo-facebook"></ion-icon></span></a>
+                    <a  (click)="googleAuth()" class="social"><span><ion-icon name="logo-google"></ion-icon></span></a>
                    </div>
 
                 </ion-col>
