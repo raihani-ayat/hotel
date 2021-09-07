@@ -5,5 +5,4 @@ export class Room{
   price: number;
   maxCapacity: number;
   maxKidsAge: number;
-  description: string;
 }

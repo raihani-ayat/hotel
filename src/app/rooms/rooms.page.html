@@ -15,45 +15,19 @@
           <ion-searchbar></ion-searchbar>
           <ion-list>
 
-            <ion-item>
+            <ion-item *ngFor="let room of rooms; index as i">
               <ion-label>
-                <h3>N° 125</h3>
-                <p class="confirmed">Single</p>
-                <p>Price:1000dh/night </p>
-                <p>Max Capacity: 2</p>
-                <p>Kids Max age: 10</p>
+                <h3>N° {{room.roomNumber}}</h3>
+                <p *ngIf="room.roomType==='suite'" class="suite">{{room.roomType}}</p>
+                <p *ngIf="room.roomType==='double'" class="double">{{room.roomType}}</p>
+                <p *ngIf="room.roomType==='single'" class="single">{{room.roomType}}</p>
+                <p>Price:{{room.price}}dh/night </p>
+                <p>Max Capacity: {{room.maxCapacity}}</p>
+                <p>Kids Max age: {{room.maxKidsAge}}</p>
               </ion-label>
               <ion-buttons>
-                <ion-button><ion-icon name="pencil-outline"></ion-icon></ion-button>
-                <ion-button><ion-icon name="close-outline"></ion-icon></ion-button>
-              </ion-buttons>
-            </ion-item>
-
-            <ion-item>
-              <ion-label>
-                <h3>N° 485</h3>
-                <p class="confirmed">Suite</p>
-                <p>Price: 2500dh /night</p>
-                <p>Max Capacity: 5 </p>
-                <p>Kids Max age: 12</p>
-              </ion-label>
-              <ion-buttons>
-                <ion-button><ion-icon name="pencil-outline"></ion-icon></ion-button>
-                <ion-button><ion-icon name="close-outline"></ion-icon></ion-button>
-              </ion-buttons>
-            </ion-item>
-
-            <ion-item>
-              <ion-label>
-                <h3>N° 568</h3>
-                <p class="confirmed">Double</p>
-                <p>Price:2000dh/night </p>
-                <p>Max Capacity: 4</p>
-                <p>Kids Max age: 10 </p>
-              </ion-label>
-              <ion-buttons>
-                <ion-button><ion-icon name="pencil-outline"></ion-icon></ion-button>
-                <ion-button><ion-icon name="close-outline"></ion-icon></ion-button>
+                <ion-button (click)="updateRoom(i)"><ion-icon name="pencil-outline"></ion-icon></ion-button>
+                <ion-button (click)="deleteRoom(i)"><ion-icon name="trash-outline"></ion-icon></ion-button>
               </ion-buttons>
             </ion-item>
 

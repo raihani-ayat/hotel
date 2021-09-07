@@ -47,6 +47,7 @@ async delete(item){
       duration: 2000
       });
       toast.present();
+      window.location.reload();
   });
   }
 }

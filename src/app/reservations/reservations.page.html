@@ -15,25 +15,15 @@
           <ion-list>
             <ion-list-header>Current bookings</ion-list-header>
 
-            <ion-item>
-              <ion-avatar>N°125</ion-avatar>
+            <ion-item *ngFor="let res of reservations">
+              <ion-avatar>N°{{res.room}}</ion-avatar>
               <ion-label>
-                <h3>10-10-2021 / 13-10-2021</h3>
-                <p>Jhon doe</p>
-                <p>Suite 1258 - 2 Adults 0 Kids</p>
-                <p>TOTAL: 5000dh</p>
-                <p class="confirmed">Confirmed</p>
-              </ion-label>
-            </ion-item>
-
-            <ion-item>
-              <ion-avatar>N°125</ion-avatar>
-              <ion-label>
-                <h3>10-10-2021 / 13-10-2021</h3>
-                <p>Jhon doe</p>
-                <p>Suite 1258 - 2 Adults 0 Kids</p>
-                <p>TOTAL: 5000dh</p>
-                <p class="pending">Pending</p>
+                <h3>{{res.checkIn}}</h3>
+                <h3>{{res.checkOut}}</h3>
+                <p>{{res.roomType}} - {{res.adults}}Adult(s) {{res.kids}}Kid(s)</p>
+                <p>TOTAL: {{res.totalPrice}}dh</p>
+                <p *ngIf="res.status==='pending'" class="pending"> {{res.status}}</p>
+                <p *ngIf="res.status==='confirmed'" class="confirmed"> {{res.status}}</p>
               </ion-label>
             </ion-item>
           </ion-list>

@@ -20,7 +20,12 @@ export class BookingService {
   fullPrice: number;
   userReservations: Array<Reservation> =[];
   userReservationsIds: Array<string> =[];
-
+  pendingReservation: Array<Reservation> =[];
+  confirmedReservations: Array<Reservation> =[];
+  totalReservations: Array<Reservation> =[];
+  pendingReservationNumber= 0;
+  confirmedReservationsNumber= 0;
+  totalReservationsNumber= 0;
 
   constructor(public afs: AngularFirestore, public auth: AuthServiceService) {
    }
@@ -81,7 +86,30 @@ export class BookingService {
                     this.userReservationsIds.push(doc.id);
                   });
                 });
+    }
 
+    getBookingbyStatus(){
+      this.pendingReservation=[];
+      this.confirmedReservations=[];
+      this.totalReservations=[];
+      this.totalReservationsNumber=0;
+      this.pendingReservationNumber=0;
+      this.confirmedReservationsNumber=0;
+      this.afs.collection<Reservation>('reservation')
+                .get().toPromise().then((snapshot)=>{
+                  snapshot.forEach((doc)=>{
+                    this.totalReservationsNumber++;
+                    this.totalReservations.push(doc.data());
+                    if(doc.data().status==='pending'){
+                      this.pendingReservationNumber++;
+                      this.pendingReservation.push(doc.data());
+                    }
+                    if(doc.data().status==='confirmed'){
+                      this.confirmedReservationsNumber++;
+                      this.confirmedReservations.push(doc.data());
+                    }
+                  });
+                });
     }
 
   }

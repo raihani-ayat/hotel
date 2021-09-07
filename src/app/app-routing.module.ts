@@ -65,6 +65,10 @@ const routes: Routes = [
     path: 'logout',
     loadChildren: () => import('./logout/logout.module').then( m => m.LogoutPageModule)
   },
+  {
+    path: 'room-update',
+    loadChildren: () => import('./room-update/room-update.module').then( m => m.RoomUpdatePageModule)
+  },
 
 
 ];
