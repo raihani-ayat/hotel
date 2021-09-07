@@ -60,7 +60,12 @@ const routes: Routes = [
   {
     path: 'new-reservation',
     loadChildren: () => import('./new-reservation/new-reservation.module').then( m => m.NewReservationPageModule)
-  }
+  },
+  {
+    path: 'logout',
+    loadChildren: () => import('./logout/logout.module').then( m => m.LogoutPageModule)
+  },
+
 
 ];
 

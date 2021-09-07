@@ -30,14 +30,14 @@
                 <ion-col>
                   <ion-item>
                     <ion-label position="floating">Check-in</ion-label>
-                    <ion-datetime placeholder="Check-in">{{reservation.checkIn}}</ion-datetime>
+                    <ion-datetime [(ngModel)]="reservation.checkIn" placeholder="Check-in" value="{{reservation.checkIn}}"></ion-datetime>
                   </ion-item>
                 </ion-col>
 
                 <ion-col>
                   <ion-item>
                     <ion-label position="floating">Check-out</ion-label>
-                    <ion-datetime placeholder="Check-out">{{reservation.checkOut}}</ion-datetime>
+                    <ion-datetime [(ngModel)]="reservation.checkOut" placeholder="Check-out"value="{{reservation.checkOut}}"></ion-datetime>
                   </ion-item>
                 </ion-col>
                 </ion-row>
@@ -48,7 +48,13 @@
                     <ion-label>
                       <h3>Adults</h3>
                     </ion-label>
-                    <ion-input value="{{reservation.adults}}"></ion-input>
+                    <ion-select value="Adults" [(ngModel)]="reservation.adults">
+                      <ion-select-option value="{{reservation.adults}}"> {{reservation.adults}} </ion-select-option>
+                      <ion-select-option value="1">1</ion-select-option>
+                      <ion-select-option value="2">2</ion-select-option>
+                      <ion-select-option value="3">3</ion-select-option>
+                      <ion-select-option value="4">4+</ion-select-option>
+                    </ion-select>
                   </ion-item>
                 </ion-col>
 
@@ -57,7 +63,13 @@
                     <ion-label>
                       <h3>Kids</h3>
                     </ion-label>
-                    <ion-input value="{{reservation.kids}}"></ion-input>
+                    <ion-select value="kids" [(ngModel)]="reservation.kids">
+                      <ion-select-option value="{{reservation.kids}}">{{reservation.kids}}</ion-select-option>
+                      <ion-select-option value="1">1</ion-select-option>
+                      <ion-select-option value="2">2</ion-select-option>
+                      <ion-select-option value="3">3</ion-select-option>
+                      <ion-select-option value="0">0</ion-select-option>
+                    </ion-select>
                   </ion-item>
                 </ion-col>
               </ion-row>
@@ -66,21 +78,36 @@
               <ion-col>
                 <ion-item>
                   <ion-label class="label">Max kids Age</ion-label>
-                  <ion-input value="{{reservation.maxKidsAge}}"></ion-input>
+                  <ion-select value="maxKidsAge" [(ngModel)]="reservation.maxKidsAge">
+                    <ion-select-option value="{{reservation.maxKidsAge}}">{{reservation.maxKidsAge}}</ion-select-option>
+                    <ion-select-option value="9">9</ion-select-option>
+                    <ion-select-option value="10">10</ion-select-option>
+                    <ion-select-option value="11">11</ion-select-option>
+                    <ion-select-option value="12">12</ion-select-option>
+                  </ion-select>
                 </ion-item>
               </ion-col>
 
               <ion-col>
                 <ion-item>
                   <ion-label class="label">Room type</ion-label>
-                  <ion-input value="{{reservation.roomType}}"></ion-input>
+                  <ion-select value="roomType" [(ngModel)]="reservation.roomType">
+                    <ion-select-option value="{{reservation.roomType}}">{{reservation.roomType}}</ion-select-option>
+                    <ion-select-option value="single">single</ion-select-option>
+                    <ion-select-option value="double">double</ion-select-option>
+                    <ion-select-option value="suite">suite</ion-select-option>
+                    <ion-select-option value="any">any</ion-select-option>
+                  </ion-select>
                 </ion-item>
               </ion-col>
             </ion-row>
 
                <ion-row>
-                <ion-col>
-                  <ion-button  fill="solid"  expand="block" class="book"> Modifiy </ion-button>
+                <ion-col *ngIf="!searching">
+                  <ion-button  fill="solid"  expand="block" class="book" (click)='validate()'> Modifiy </ion-button>
+                </ion-col>
+                <ion-col *ngIf="searching" class="spinner">
+                  <ion-spinner></ion-spinner>
                 </ion-col>
               </ion-row>
 
@@ -92,18 +119,32 @@
     </ion-row>
 
       <ion-list>
-      <ion-radio-group [(ngModel)]="selected">
-                <ion-row *ngFor ="let result of results |async">
+      <ion-radio-group [(ngModel)]="selected" (ngModelChange)="update()">
+        <div *ngIf=" results.length===0">
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>
+                  <h3>No results</h3>
+                </ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div *ngIf=" results.length!==0">
+                <ion-row *ngFor ="let result of results ">
                   <ion-col>
                     <ion-item >
                       <ion-label>
-                        <h3>{{result.type}} </h3>
+                        <h3>Room {{result.roomNumber}} </h3>
+                        <p>{{result.roomType}}</p>
                         <h3> {{result.price}} dh/night</h3>
                       </ion-label>
-                      <ion-radio value="{{result.id}}"></ion-radio>
+                      <ion-radio value="{{result.roomNumber}}"></ion-radio>
                     </ion-item>
                   </ion-col>
                 </ion-row>
+          </div>
 
       </ion-radio-group>
     </ion-list>
@@ -112,30 +153,17 @@
       <ion-card-header class="summary-card-header">Summary of the reservation </ion-card-header>
       <ion-card-content>
         <ion-list>
-          <ion-row>
+          <ion-row  >
             <ion-col>
                 <ion-label>
-                  <h3>Room 1</h3>
-                  <p>Suite 2</p>
+                  <h3>Room {{room.id}}</h3>
+                  <p>{{room.roomType }}</p>
                 </ion-label>
             </ion-col>
             <ion-col>
               <ion-label>
-                <h3>1000dh/night </h3>
-              </ion-label>
-            </ion-col>
-          </ion-row>
-
-          <ion-row>
-            <ion-col>
-                <ion-label>
-                  <h3>Total</h3>
-                </ion-label>
-            </ion-col>
-            <ion-col>
-              <ion-label>
-                <h3>2000dh/night x3</h3>
-                <p>6000dh</p>
+                <h3>{{room.price}}dh/night</h3>
+                <h3>Total: {{totalPrice}}dh </h3>
               </ion-label>
             </ion-col>
           </ion-row>

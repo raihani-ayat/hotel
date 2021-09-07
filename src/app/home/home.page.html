@@ -55,7 +55,7 @@
                       <ion-select-option value="1">1</ion-select-option>
                       <ion-select-option value="2">2</ion-select-option>
                       <ion-select-option value="3">3</ion-select-option>
-                      <ion-select-option value="4">4+</ion-select-option>
+                      <ion-select-option value="0">0</ion-select-option>
                     </ion-select>
                   </ion-item>
                 </ion-col>
@@ -85,8 +85,11 @@
                 </ion-col>
               </ion-row>
               <ion-row>
-                <ion-col>
-                  <ion-button (click)="showResults()" fill="solid"  expand="block" class="book"> Book </ion-button>
+                <ion-col *ngIf="!searching">
+                  <ion-button (click)="validate()" fill="solid"  expand="block" class="book"> SEARCH </ion-button>
+                </ion-col>
+                <ion-col *ngIf="searching" class="spinner">
+                  <ion-spinner></ion-spinner>
                 </ion-col>
               </ion-row>
             </ion-grid>

@@ -4,7 +4,7 @@
         <ion-menu-button autoHide="false"></ion-menu-button>
       </ion-buttons>
     <ion-title class="title">
-      My reservations
+      Payment
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -24,13 +24,13 @@
           <ion-row>
             <ion-col>
                 <ion-label>
-                  <h3>Room 1</h3>
-                  <p>Suite 2</p>
+                  <h3>Room {{room.roomNumber}}</h3>
+                  <p>{{room.roomType}}</p>
                 </ion-label>
             </ion-col>
             <ion-col>
               <ion-label>
-                <h3>1000dh/night </h3>
+                <h3>{{room.price}}dh/night </h3>
               </ion-label>
             </ion-col>
           </ion-row>
@@ -39,14 +39,8 @@
           <ion-row>
             <ion-col>
                 <ion-label>
-                  <h3>Total</h3>
+                  <h3>Total: {{totalPrice}}dh</h3>
                 </ion-label>
-            </ion-col>
-            <ion-col>
-              <ion-label>
-                <h3>2000dh/night x3</h3>
-                <p>6000dh</p>
-              </ion-label>
             </ion-col>
           </ion-row>
 
@@ -86,16 +80,15 @@
     <ion-label class="cancelation-title"><ion-icon name="newspaper-outline" class="calendar-icon"></ion-icon>Cancelation policy</ion-label>
     <ion-row>
       <div class="terms">
-        There is a credit card required for this reservation. Free cancellation before 11:59 PM local hotel time on 12 Aug 2021.
-        By clicking "Book Reservation," I agree to the, Site Usage Agreement,
-        Opens new window, and agree that Hilton will collect, use, share and transfer my information as set out in Hilton’s Global Privacy Statement, Opens new window.
+        There is a credit card required for this reservation. Free cancellation before 11:59 PM local hotel time on {{cancelDate}}.
+        By clicking "Book Reservation," I agree to the Site Usage Agreement and Terms and condition.
       </div>
     </ion-row>
 
 
     <ion-row>
       <ion-col>
-        <ion-button fill="solid"  expand="block" class="book">Book reservation</ion-button>
+        <ion-button fill="solid"  expand="block" class="book" (click)="bookReservation()">Book reservation</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

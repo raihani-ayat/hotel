@@ -15,28 +15,18 @@
     <ion-list>
       <ion-list-header>My bookings</ion-list-header>
 
-      <ion-item>
-        <ion-avatar>N°125</ion-avatar>
+      <ion-item *ngFor="let item of myReservations; index as i">
+        <ion-avatar>Room°{{item.room}}</ion-avatar>
         <ion-label>
-          <h3>10-10-2021 / 13-10-2021</h3>
-          <p>Suite 125</p>
-          <p>2 Adults 1 kid</p>
-          <p>TOTAL: 5000dh</p>
-          <p class="pending"> Pending</p>
+          <h3>{{item.checkIn}}</h3>
+          <h3>{{item.checkOut}}</h3>
+          <p>{{item.roomType}}</p>
+          <p>{{item.adults}} Adult(s) {{item.kids}}kid(s)</p>
+          <p>TOTAL: {{item.totalPrice}}dh</p>
+          <p *ngIf="item.status==='pending'" class="pending"> {{item.status}}</p>
+          <p *ngIf="item.status==='confirmed'" class="confirmed"> {{item.status}}</p>
         </ion-label>
-        <ion-button><ion-icon name="close-outline"></ion-icon></ion-button>
-      </ion-item>
-
-      <ion-item>
-        <ion-avatar>N°125</ion-avatar>
-        <ion-label>
-          <h3>10-10-2021 / 13-10-2021</h3>
-          <p>Suite 125</p>
-          <p>2 Adults 1 kid</p>
-          <p>TOTAL: 5000dh</p>
-          <p class="confirmed">Confirmed</p>
-        </ion-label>
-        <ion-button><ion-icon name="trash-outline"></ion-icon></ion-button>
+        <ion-button *ngIf="item.status==='pending'" (click)="delete(i)"><ion-icon name="close-outline"></ion-icon></ion-button>
       </ion-item>
     </ion-list>
 

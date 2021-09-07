@@ -24,25 +24,25 @@
                 <ion-col>
                   <ion-item>
                     <ion-label position="floating">Check-in</ion-label>
-                    <ion-datetime placeholder="Check-in"></ion-datetime>
+                    <ion-datetime placeholder="Check-in" [(ngModel)]="newReservation.checkIn"></ion-datetime>
                   </ion-item>
                 </ion-col>
 
                 <ion-col>
                   <ion-item>
-                    <ion-label position="floating">Check-out</ion-label>
-                    <ion-datetime placeholder="Check-out"></ion-datetime>
+                    <ion-label position="floating" >Check-out</ion-label>
+                    <ion-datetime placeholder="Check-out" [(ngModel)]="newReservation.checkOut"></ion-datetime>
                   </ion-item>
                 </ion-col>
 
                 <ion-col>
                   <ion-item>
                     <ion-label class="label">Adults</ion-label>
-                    <ion-select value="Adults">
-                      <ion-select-option value="enable">1</ion-select-option>
-                      <ion-select-option value="mute">2</ion-select-option>
-                      <ion-select-option value="mute_week">3</ion-select-option>
-                      <ion-select-option value="mute_year">4+</ion-select-option>
+                    <ion-select value="Adults" [(ngModel)]="newReservation.adults">
+                      <ion-select-option value="1">1</ion-select-option>
+                      <ion-select-option value="2">2</ion-select-option>
+                      <ion-select-option value="3">3</ion-select-option>
+                      <ion-select-option value="4">4</ion-select-option>
                     </ion-select>
                   </ion-item>
                 </ion-col>
@@ -50,11 +50,11 @@
                 <ion-col>
                   <ion-item>
                     <ion-label class="label">Kids</ion-label>
-                    <ion-select value="Adults">
-                      <ion-select-option value="enable">1</ion-select-option>
-                      <ion-select-option value="mute">2</ion-select-option>
-                      <ion-select-option value="mute_week">3</ion-select-option>
-                      <ion-select-option value="mute_year">4+</ion-select-option>
+                    <ion-select value="kids" [(ngModel)]="newReservation.kids">
+                      <ion-select-option value="1">1</ion-select-option>
+                      <ion-select-option value="2">2</ion-select-option>
+                      <ion-select-option value="3">3</ion-select-option>
+                      <ion-select-option value="0">0</ion-select-option>
                     </ion-select>
                   </ion-item>
                 </ion-col>
@@ -62,11 +62,11 @@
                 <ion-col>
                   <ion-item>
                     <ion-label class="label">Max kids Age</ion-label>
-                    <ion-select value="Adults">
-                      <ion-select-option value="enable">1</ion-select-option>
-                      <ion-select-option value="mute">2</ion-select-option>
-                      <ion-select-option value="mute_week">3</ion-select-option>
-                      <ion-select-option value="mute_year">4+</ion-select-option>
+                    <ion-select value="maxKidsAge" [(ngModel)]="newReservation.maxKidsAge">
+                      <ion-select-option value="9">9</ion-select-option>
+                      <ion-select-option value="10">10</ion-select-option>
+                      <ion-select-option value="11">11</ion-select-option>
+                      <ion-select-option value="12">12</ion-select-option>
                     </ion-select>
                   </ion-item>
                 </ion-col>
@@ -74,18 +74,21 @@
                 <ion-col>
                   <ion-item>
                     <ion-label class="label">Room type</ion-label>
-                    <ion-select value="Adults">
-                      <ion-select-option value="enable">1</ion-select-option>
-                      <ion-select-option value="mute">2</ion-select-option>
-                      <ion-select-option value="mute_week">3</ion-select-option>
-                      <ion-select-option value="mute_year">4+</ion-select-option>
+                    <ion-select value="roomType" [(ngModel)]="newReservation.roomType">
+                      <ion-select-option value="single">single</ion-select-option>
+                      <ion-select-option value="double">double</ion-select-option>
+                      <ion-select-option value="suite">suite</ion-select-option>
+                      <ion-select-option value="any">any</ion-select-option>
                     </ion-select>
                   </ion-item>
                 </ion-col>
               </ion-row>
               <ion-row>
-                <ion-col>
-                  <ion-button href="/results" fill="solid"  expand="block" class="book"> Book </ion-button>
+                <ion-col *ngIf="!searching">
+                  <ion-button (click)="validate()" fill="solid"  expand="block" class="book"> SEARCH </ion-button>
+                </ion-col>
+                <ion-col *ngIf="searching" class="spinner">
+                  <ion-spinner></ion-spinner>
                 </ion-col>
               </ion-row>
             </ion-grid>

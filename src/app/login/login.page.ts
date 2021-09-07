@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { AuthServiceService } from '../Services/auth-service.service';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 import { ToastController } from '@ionic/angular';
+import { AppComponent } from '../app.component';
+import { BookingService } from '../Services/booking.service';
 
 
 
@@ -21,7 +23,11 @@ export class LoginPage implements OnInit {
   constructor( public router: Router,
      public auth: AuthServiceService,
      public fAuth: AngularFireAuth,
-     public toastController: ToastController) { }
+     public toastController: ToastController,
+     public appC: AppComponent,
+     public bs: BookingService) {
+       this.fAuth.signOut();
+     }
 
   ngOnInit() {
   }
@@ -33,18 +39,31 @@ export class LoginPage implements OnInit {
         this.password,
       );
       if (r) {
-        console.log('Successfully logged in!');
         this.auth.authed= true;
         this.fAuth.authState.subscribe(user => {
           if(user) {
             this.auth.uid = user.uid;
-            this.router.navigateByUrl('/home');
+            this.auth.loggedIn();
+            if(user.email==='admin@admin.com' ){
+              this.appC.getMenu();
+              this.router.navigateByUrl('/admin-home');
+            }
+            else{
+              this.appC.getMenu();
+              this.router.navigateByUrl('/home');
+            }
+
           }
       });
     }
 
     } catch (err) {
       console.error(err);
+      const toast = await this.toastController.create({
+        message: 'The email or password is wrong, please try again!',
+        duration: 2000
+      });
+      toast.present();
     }
   }
 
