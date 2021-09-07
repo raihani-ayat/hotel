@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PopoverController, ToastController } from '@ionic/angular';
+import { AppComponent } from '../app.component';
 import { BookpopoverPage } from '../bookpopover/bookpopover.page';
 import { Reservation } from '../models/reservation';
 import { BookingService } from '../Services/booking.service';
@@ -17,8 +18,9 @@ export class HomePage {
   searching=false;
 
   constructor(private popover: PopoverController, private bookingS: BookingService,
-    private router: Router, public toastController: ToastController) {
+    private router: Router, public toastController: ToastController, public ac: AppComponent) {
       this.searching=false;
+      this.ac.getMenu();
     }
 
   OpenPopover(){

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument,AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Room } from '../models/room';
 import { ToastController } from '@ionic/angular';
+import { AppComponent } from '../app.component';
 
 
 @Component({
@@ -22,7 +23,9 @@ public totalPeople: number;
 searching= false;
 
 
-  constructor(public bs: BookingService,public router: Router, public fs: AngularFirestore, public toastController: ToastController ) {
+  constructor(public bs: BookingService,public router: Router, public fs: AngularFirestore, public toastController: ToastController,
+    public ac: AppComponent ) {
+      this.ac.getMenu();
       this.reservation= this.bs.reservation;
         this.results=this.bs.results;
     }

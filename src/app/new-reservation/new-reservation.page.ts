@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { AppComponent } from '../app.component';
 import { Reservation } from '../models/reservation';
 import { BookingService } from '../Services/booking.service';
 
@@ -16,7 +17,10 @@ export class NewReservationPage implements OnInit {
   searching=false;
 
 
-  constructor(private bookingS: BookingService, private router: Router, public toastController: ToastController) { }
+  constructor(private bookingS: BookingService, private router: Router, public toastController: ToastController,
+    public ac: AppComponent) {
+      this.ac.getMenu();
+     }
 
   ngOnInit() {
   }

@@ -4,6 +4,7 @@ import { RoomService } from '../Services/room.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastController } from '@ionic/angular';
 import { BookingService } from '../Services/booking.service';
+import { AppComponent } from '../app.component';
 
 
 @Component({
@@ -15,7 +16,9 @@ export class NewRoomPage implements OnInit {
   public newRoom= new Room();
 
   constructor(public rs: RoomService,public afs: AngularFirestore,public toastController: ToastController,
-    public bs: BookingService) { }
+    public bs: BookingService , public ac: AppComponent) {
+      this.ac.getMenu();
+     }
 
   ngOnInit() {
   }

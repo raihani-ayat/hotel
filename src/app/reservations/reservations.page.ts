@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from '../app.component';
 import { Reservation } from '../models/reservation';
 import { BookingService } from '../Services/booking.service';
 
@@ -11,7 +12,8 @@ import { BookingService } from '../Services/booking.service';
 export class ReservationsPage implements OnInit {
 reservations: Array<Reservation> =[];
 
-  constructor(public bs: BookingService) {
+  constructor(public bs: BookingService, public ac: AppComponent) {
+    this.ac.getMenu();
     this.bs.getBookingbyStatus();
     this.bs.delay(3000).then(()=>{
       this.reservations=this.bs.totalReservations;

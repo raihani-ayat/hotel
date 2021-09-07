@@ -6,6 +6,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AuthServiceService } from '../Services/auth-service.service';
+import { AppComponent } from '../app.component';
 
 
 @Component({
@@ -14,16 +15,17 @@ import { AuthServiceService } from '../Services/auth-service.service';
   styleUrls: ['./user-reservations.page.scss'],
 })
 export class UserReservationsPage implements OnInit {
-myReservations: Array<Reservation>;
-myReservationsIds: Array<string>;
-uid;
-public reservationCollectionRef: AngularFirestoreCollection<Reservation>;
+  myReservations: Array<Reservation>;
+  myReservationsIds: Array<string>;
+  uid;
+  public reservationCollectionRef: AngularFirestoreCollection<Reservation>;
 
   constructor(public bs: BookingService, public auth: AngularFireAuth,public afs: AngularFirestore
-    ,public toastController: ToastController, public router: Router, public aut: AuthServiceService ) {
-      console.log(this.aut.authed);
-    this.reservationCollectionRef = this.afs.collection('reservation');
-    this.auth.authState.subscribe(user=>{
+    ,public toastController: ToastController, public router: Router, public aut: AuthServiceService,
+    public ac: AppComponent ) {
+      this.ac.getMenu();
+      this.reservationCollectionRef = this.afs.collection('reservation');
+      this.auth.authState.subscribe(user=>{
       if(user){
         this.uid=user.uid;
         this.bs.getUserReservations(user.uid);

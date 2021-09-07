@@ -5,6 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { AuthServiceService } from '../Services/auth-service.service';
 import { ToastController } from '@ionic/angular';
+import { AppComponent } from '../app.component';
 
 
 
@@ -23,8 +24,10 @@ export class SignUpPage implements OnInit {
     public fAuth: AngularFireAuth,
     public afs: AngularFirestore,
     public as: AuthServiceService,
-    public toastController: ToastController) {
-    this.usersCollectionRef = this.afs.collection('users');
+    public toastController: ToastController,
+    public ac: AppComponent) {
+      this.ac.getMenu();
+      this.usersCollectionRef = this.afs.collection('users');
    }
 
   ngOnInit() {

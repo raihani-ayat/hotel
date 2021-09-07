@@ -6,6 +6,7 @@ import { Room } from '../models/room';
 import { Reservation } from '../models/reservation';
 import { AuthServiceService } from '../Services/auth-service.service';
 import { ToastController } from '@ionic/angular';
+import { AppComponent } from '../app.component';
 @Component({
   selector: 'app-payement',
   templateUrl: './payement.page.html',
@@ -18,7 +19,8 @@ export class PayementPage implements OnInit {
   cancelDate;
 
   constructor(public bs: BookingService,public router: Router, public fs: AngularFirestore,public auth: AuthServiceService,
-    public toastController: ToastController) {
+    public toastController: ToastController, public ac: AppComponent) {
+      this.ac.getMenu();
     this.room= this.bs.selectedOption;
     this.totalPrice= this.bs.fullPrice;
     this.cancelDate= new Date(new Date(this.bs.reservation.checkIn).getDate() -1);

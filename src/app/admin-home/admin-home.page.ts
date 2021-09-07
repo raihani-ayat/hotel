@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookingService } from '../Services/booking.service';
 import { Reservation } from '../models/reservation';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-admin-home',
@@ -15,7 +16,8 @@ export class AdminHomePage implements OnInit {
   confirmedReservationsNumber= 0;
   totalReservationsNumber= 0;
 
-  constructor(public bs: BookingService) {
+  constructor(public bs: BookingService, public ac: AppComponent) {
+    this.ac.getMenu();
     this.bs.getBookingbyStatus();
     this.bs.delay(3000).then(()=>{
       this.confirmedReservations=this.bs.confirmedReservations;

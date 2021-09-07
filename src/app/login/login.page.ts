@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
      public toastController: ToastController,
      public appC: AppComponent,
      public bs: BookingService) {
-       this.fAuth.signOut();
+       this.appC.getMenu();
      }
 
   ngOnInit() {
@@ -34,28 +34,23 @@ export class LoginPage implements OnInit {
 
   async login() {
     try {
-      const r = await this.fAuth.signInWithEmailAndPassword(
+       await this.fAuth.signInWithEmailAndPassword(
         this.user.email,
         this.password,
-      );
-      if (r) {
-        this.auth.authed= true;
-        this.fAuth.authState.subscribe(user => {
-          if(user) {
-            this.auth.uid = user.uid;
-            this.auth.loggedIn();
-            if(user.email==='admin@admin.com' ){
-              this.appC.getMenu();
-              this.router.navigateByUrl('/admin-home');
+      ).then(()=>{
+          this.auth.authed= true;
+          this.fAuth.authState.subscribe(user => {
+            if(user) {
+              this.auth.uid = user.uid;
+              if(user.email==='admin@admin.com' ){
+                this.router.navigateByUrl('/admin-home');
+              }
+              else{
+                this.router.navigateByUrl('/home');
+              }
             }
-            else{
-              this.appC.getMenu();
-              this.router.navigateByUrl('/home');
-            }
-
-          }
+        });
       });
-    }
 
     } catch (err) {
       console.error(err);
