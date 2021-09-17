@@ -1,0 +1,55 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button autoHide="false"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+      <ion-content >
+        <ion-grid >
+
+          <ion-card class="booking-card">
+            <ion-slides>
+              <ion-slide *ngFor='let url of ims'>
+                <ion-img [src]='url |async'></ion-img>
+              </ion-slide>
+            </ion-slides>
+            <ion-card-header class="booking-card-header">
+              <ion-card-subtitle>Room N° {{room.roomNumber}}</ion-card-subtitle>
+              <ion-card-title> {{room.roomType}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-row>
+                <ion-col><p class="cash"><ion-icon name="cash"></ion-icon>  {{room.price}}dh/night</p></ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col><p><ion-icon name="snow"></ion-icon>  Air conditioning </p></ion-col>
+                <ion-col><p><ion-icon name="thermometer"></ion-icon>  Heating </p></ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col><p><ion-icon name="tv"></ion-icon> Flat screen </p></ion-col>
+                <ion-col><p><ion-icon name="wifi"></ion-icon> Wifi </p></ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col><p><ion-icon name="cafe"></ion-icon> Good breakfast </p></ion-col>
+                <ion-col><p><ion-icon name="fast-food"></ion-icon>  Restauration </p></ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col><p><ion-icon name="paw"></ion-icon> No pets allowed </p></ion-col>
+                <ion-col><p><ion-icon name="volume-mute"></ion-icon> No parties allowed </p></ion-col>
+              </ion-row>
+
+            </ion-card-content>
+
+          </ion-card>
+
+        </ion-grid>
+        <app-footer></app-footer>
+
+      </ion-content>
+

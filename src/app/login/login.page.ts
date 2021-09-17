@@ -6,6 +6,7 @@ import { AuthServiceService } from '../Services/auth-service.service';
 import { ToastController } from '@ionic/angular';
 import { AppComponent } from '../app.component';
 import { BookingService } from '../Services/booking.service';
+import {Location} from '@angular/common';
 
 
 
@@ -24,7 +25,8 @@ export class LoginPage implements OnInit {
      public fAuth: AngularFireAuth,
      public toastController: ToastController,
      public appC: AppComponent,
-     public bs: BookingService) {
+     public bs: BookingService,
+     public location: Location) {
        this.appC.getMenu();
      }
 
@@ -50,6 +52,7 @@ export class LoginPage implements OnInit {
             }
         });
       });
+
 
     } catch (err) {
       console.error(err);
@@ -82,6 +85,10 @@ export class LoginPage implements OnInit {
   }
 
   facebookAuth(){
-    this.auth.facebookAuth();
+    this.auth.doLogin();
+  }
+
+  goBack(){
+    this.location.back();
   }
 }

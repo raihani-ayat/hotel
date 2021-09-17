@@ -73,6 +73,10 @@ const routes: Routes = [
     path: 'forgotten-password',
     loadChildren: () => import('./forgotten-password/forgotten-password.module').then( m => m.ForgottenPasswordPageModule)
   },
+  {
+    path: 'room-info',
+    loadChildren: () => import('./room-info/room-info.module').then( m => m.RoomInfoPageModule)
+  },
 
 
 ];

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { ToastController } from '@ionic/angular';
 import { AppComponent } from '../app.component';
 import { Reservation } from '../models/reservation';
@@ -18,7 +19,7 @@ export class NewReservationPage implements OnInit {
 
 
   constructor(private bookingS: BookingService, private router: Router, public toastController: ToastController,
-    public ac: AppComponent) {
+    public ac: AppComponent, public location: Location) {
       this.ac.getMenu();
      }
 
@@ -37,7 +38,6 @@ export class NewReservationPage implements OnInit {
           this.router.navigateByUrl('/results');
         });
   }
-
   async  validate(){
     const now= new Date().setHours(0,0,0,0);
     const past= new Date(this.newReservation.checkIn).setHours(0,0,0,0)< now;
@@ -62,7 +62,7 @@ export class NewReservationPage implements OnInit {
         const checkOut = new Date(this.newReservation.checkOut).valueOf();
         const diff = Math.abs(new Date(this.newReservation.checkOut).getTime() - new Date(this.newReservation.checkIn).getTime());
         const diffDays = Math.ceil(diff / (1000 * 3600 * 24));
-        if(checkOut<checkIn || diffDays===1){
+        if(checkOut<checkIn || diffDays<1){
           const toast = await this.toastController.create({
             message: 'The check out date must be later then the check in date!',
             duration: 2000
@@ -70,12 +70,14 @@ export class NewReservationPage implements OnInit {
           toast.present();
         }
         else{
-          if(this.newReservation.kids.toString() !== '0'  && this.newReservation.maxKidsAge===undefined){
-          const toast = await this.toastController.create({
-            message: 'Max kids age is required!',
-            duration: 2000
-            });
-            toast.present();
+          if(this.newReservation.kids.toString() !== '0'  ){
+            if(this.newReservation.maxKidsAge===undefined){
+              const toast = await this.toastController.create({
+                message: 'Max kids age is required!',
+                duration: 2000
+                });
+                toast.present();
+            }
           }
           else{
             this.showResults();
@@ -83,6 +85,10 @@ export class NewReservationPage implements OnInit {
         }
       }
     }
+  }
+
+  goBack(){
+    this.location.back();
   }
 
 }

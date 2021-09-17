@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { BookingService } from '../Services/booking.service';
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument,AngularFirestoreCollection } from '@angular/fire/firestore';
@@ -21,13 +22,15 @@ public room= new Room();
 public totalPrice = 0;
 public totalPeople: number;
 searching= false;
+imgs: Array<Array<any>> =[[]];
 
 
   constructor(public bs: BookingService,public router: Router, public fs: AngularFirestore, public toastController: ToastController,
-    public ac: AppComponent ) {
+    public ac: AppComponent, public location: Location) {
       this.ac.getMenu();
       this.reservation= this.bs.reservation;
         this.results=this.bs.results;
+        this.imgs= this.bs.ims;
     }
 
   ngOnInit() {}
@@ -78,6 +81,7 @@ searching= false;
      this.bs.delay(3000).then(()=> {
        this.searching=false;
        this.results=this.bs.results;
+       this.imgs=this.bs.ims;
        console.log(this.results);
        this.router.navigateByUrl('/results');
 
@@ -113,6 +117,15 @@ searching= false;
               this.totalPrice=Number(doc.data().price)*diffDays;
             }
           }));
+    }
+
+    goBack(){
+      this.location.back();
+    }
+
+    checkRoom(room: Room){
+      this.bs.showRoomInfo(room);
+      this.bs.delay(1000).then(()=>this.router.navigateByUrl('/room-info'));
     }
 
 

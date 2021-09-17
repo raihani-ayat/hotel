@@ -93,7 +93,23 @@ ion-item{
 }
 
 
+ion-toolbar{
+  --background: #F6F3F1;
+  --border-color: #F6F3F1;
+  --border-width: 1px;
+  --color: #0f0f0f;
 
+  ion-menu-button{
+    --color: #0f0f0f;
+  }
+}
 
+.back{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  --color: #0f0f0f;
+  font-size: 14px;
+  font-weight: bold;
 
+}
 

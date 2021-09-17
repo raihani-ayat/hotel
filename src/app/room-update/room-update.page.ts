@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { Room } from '../models/room';
 import { BookingService } from '../Services/booking.service';
 import { RoomService } from '../Services/room.service';
@@ -10,7 +11,7 @@ import { RoomService } from '../Services/room.service';
 export class RoomUpdatePage implements OnInit {
 room= new Room();
 
-  constructor(public rs: RoomService, public bs: BookingService) {
+  constructor(public rs: RoomService, public bs: BookingService, public location: Location) {
     this.room=this.rs.roomToUpdate;
    }
 
@@ -19,5 +20,9 @@ room= new Room();
 
   updateRoom(room: Room){
     this.rs.updateRoom(room);
+  }
+
+  goBack(){
+    this.location.back();
   }
 }

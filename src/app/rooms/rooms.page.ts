@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { RoomService } from '../Services/room.service';
 import { BookingService } from '../Services/booking.service';
 import { Room } from '../models/room';
@@ -13,7 +14,7 @@ export class RoomsPage implements OnInit {
   public rooms: Array<Room>= [];
   public roomIds: Array<string>= [];
 
-  constructor(public rs: RoomService, public bs: BookingService, public ac: AppComponent) {
+  constructor(public rs: RoomService, public bs: BookingService, public ac: AppComponent, public location: Location) {
     this.ac.getMenu();
     this.rs.getRooms();
     this.bs.delay(2000).then(()=>{
@@ -31,5 +32,9 @@ export class RoomsPage implements OnInit {
 
   deleteRoom(i: number){
     this.rs.deleteRoom(i);
+  }
+
+  goBack(){
+    this.location.back();
   }
 }

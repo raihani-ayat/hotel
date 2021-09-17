@@ -1,12 +1,9 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
       <ion-buttons slot="start">
         <ion-menu-button autoHide="false"></ion-menu-button>
       </ion-buttons>
-    <ion-title class="title">
-      UPADTE ROOM
-    </ion-title>
-  </ion-toolbar>
+    </ion-toolbar>
 </ion-header>
 
       <ion-content >
@@ -21,7 +18,7 @@
 
                     <ion-item>
                       <ion-label position="floating">Room N°</ion-label>
-                      <ion-input placeholder="number" [(ngModel)]="room.roomNumber" disabled></ion-input>
+                      <ion-input placeholder="number" [(ngModel)]="room.roomNumber" readonly></ion-input>
                     </ion-item>
 
                     <ion-item>
@@ -31,7 +28,7 @@
 
 
                     <ion-item>
-                      <ion-label class="label">Max kids Age</ion-label>
+                      <ion-label >Max kids Age</ion-label>
                       <ion-select value="maxKidsAge" [(ngModel)]="room.maxKidsAge">
                         <ion-select-option value="9">9</ion-select-option>
                       <ion-select-option value="10">10</ion-select-option>
@@ -41,7 +38,7 @@
                     </ion-item>
 
                     <ion-item>
-                      <ion-label class="label">Room type</ion-label>
+                      <ion-label >Room type</ion-label>
                       <ion-select value="roomType" [(ngModel)]="room.roomType">
                         <ion-select-option value="single">single</ion-select-option>
                         <ion-select-option value="double">double</ion-select-option>
@@ -50,7 +47,7 @@
                     </ion-item>
 
                     <ion-item>
-                      <ion-label class="label">Max capacity</ion-label>
+                      <ion-label >Max capacity</ion-label>
                       <ion-select value="maxCapacity" [(ngModel)]="room.maxCapacity">
                         <ion-select-option value="1">1</ion-select-option>
                         <ion-select-option value="2">2</ion-select-option>
@@ -59,6 +56,8 @@
                         <ion-select-option value="5">5</ion-select-option>
                       </ion-select>
                     </ion-item>
+
+                    <ion-img></ion-img>
 
                     <ion-button fill="solid"  expand="block" class="book" (click)="updateRoom(room)"> UPDATE </ion-button>
 

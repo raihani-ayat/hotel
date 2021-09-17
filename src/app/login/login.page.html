@@ -1,16 +1,24 @@
-<ion-header>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '1371694839898549',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v12.0'
+    });
+  };
+</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+ <ion-header class="ion-no-border">
   <ion-toolbar>
       <ion-buttons slot="start">
         <ion-menu-button autoHide="false"></ion-menu-button>
       </ion-buttons>
-    <ion-title>
-      Login
-    </ion-title>
-  </ion-toolbar>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" >
-
   <ion-grid>
     <ion-row >
       <ion-col >
@@ -75,3 +83,5 @@
 
 
 </ion-content>
+
+

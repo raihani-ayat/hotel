@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-inferrable-types */
+/* eslint-disable prefer-const */
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable prefer-arrow/prefer-arrow-functions */
 /* eslint-disable @typescript-eslint/prefer-for-of */
 import { Injectable } from '@angular/core';
@@ -5,6 +8,9 @@ import { AngularFirestore} from '@angular/fire/firestore';
 import { Room } from '../models/room';
 import { Reservation } from '../models/reservation';
 import { AuthServiceService } from './auth-service.service';
+import { AngularFireStorage} from '@angular/fire/storage';
+import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal';
+
 
 
 
@@ -26,19 +32,26 @@ export class BookingService {
   pendingReservationNumber= 0;
   confirmedReservationsNumber= 0;
   totalReservationsNumber= 0;
+  ims: Array<Array<any>>= [];
+  infoRoom: Room;
+  infoRoomImgs: Array<any>= [];
+  paymentAmount: string = '3.33';
+  currency: string = 'USD';
 
-  constructor(public afs: AngularFirestore, public auth: AuthServiceService) {
+  constructor(public afs: AngularFirestore, public auth: AuthServiceService, public storage: AngularFireStorage,
+    private payPal: PayPal) {
    }
 
  findRoom(reservation: Reservation, totalPeople: number){
         // eslint-disable-next-line prefer-const
         let promise= new Promise(()=>{
           this.roomsAvIds.length=0;
+          this.ims=[];
           this.afs.collection<Room>('rooms')
             .get().toPromise().then((snapshot)=>{
               snapshot.forEach((doc)=>{
                 if(reservation.roomType==='any'){
-                  if(totalPeople<doc.data().maxCapacity && reservation.maxKidsAge<=doc.data().maxKidsAge ){
+                  if(totalPeople<doc.data().maxCapacity && reservation.maxKidsAge>=doc.data().maxKidsAge ){
                     this.roomsAvIds.push(doc.data());
                   }
                 }
@@ -69,6 +82,20 @@ export class BookingService {
 
             }).then(()=>{
               this.results=this.roomsAvIds;
+              this.roomsAvIds.forEach(()=>{
+                this.ims.push([]);
+              });
+              for(let i=0; i<this.roomsAvIds.length; i++){
+                this.storage.ref('/fileStorage/').listAll().toPromise().then(
+                  (resp)=>{
+                    resp.items.forEach((im)=>{
+                      if(im.name.startsWith(`${this.roomsAvIds[i].roomNumber}_`)){
+                        this.ims[i].push(im.getDownloadURL());
+                      }
+                    });
+                  }
+                );
+              }
             });
         });
             return promise;
@@ -112,33 +139,44 @@ export class BookingService {
                 });
     }
 
+    showRoomInfo(room: Room){
+      this.infoRoom= room;
+      this.storage.ref('/fileStorage/').listAll().toPromise().then(
+        (resp)=>{
+          resp.items.forEach((im)=>{
+            if(im.name.startsWith(`${room.roomNumber}_`)){
+              this.infoRoomImgs.push(im.getDownloadURL());
+            }
+          });
+        }
+      );
+    }
+
+    payWithPaypal() {
+      this.payPal.init({
+        PayPalEnvironmentProduction: 'YOUR_PRODUCTION_CLIENT_ID',
+        PayPalEnvironmentSandbox: 'ASITIxNAAR_0B3PiE6vkOvs2Cz522XOehhm28MIzKuQi0hEN8wWj--I9xOrQjRxq2MDnAJDC5eW_XpsM'
+      }).then(() => {
+        this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
+        })).then(() => {
+          let payment = new PayPalPayment(this.paymentAmount, this.currency, 'Description', 'sale');
+          this.payPal.renderSinglePaymentUI(payment).then((res) => {
+            console.log(res);
+            console.log('successful payment');
+          }, () => {
+            console.log('payement unsuccsseful');
+          }).catch((error)=>{
+            console.log(error);
+          });
+        }, () => {
+          console.log('configiration error');
+        }).catch((error)=>{
+          console.log(error);
+        });
+      }, () => {
+        console.log('initialization error');
+      });
+    }
+
   }
 
-
-//this.results= this.afs.collection<Reservation>('reservation').valueChanges();
-/*this.afs.collection<Reservation>('reservation')
-    .get().toPromise().then((snapshot)=>
-    snapshot.forEach((doc)=>{
-      const startDate= new Date(doc.data().checkIn);
-      const endDate = new Date(doc.data().checkOut);
-
-      const resStartDate= new Date(reservation.checkIn);
-      const resEndDate= new Date(reservation.checkOut);
-
-      if(reservation.roomType==='any'){
-        if((startDate>resEndDate || endDate<resStartDate)
-        && totalPeople<doc.data().maxCapacity && reservation.maxKidsAge<=doc.data().maxKidsAge ){
-        this.results.push(doc.data());
-        this.roomIds.push(doc.data().id);}
-      }else{
-        if((startDate>resEndDate || endDate<resStartDate)
-        && reservation.roomType===doc.data().roomType && totalPeople<doc.data().maxCapacity
-        && reservation.maxKidsAge<=doc.data().maxKidsAge ){
-          this.results.push(doc.data());
-        }
-      }
-
-    }));*/
-/*this.roomsCollectionRef = this.afs.collection('rooms');
-  roomsCollectionRef: AngularFirestoreCollection<Room>;
-this.rooms= this.roomsCollectionRef.valueChanges();*/

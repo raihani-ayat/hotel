@@ -1,12 +1,9 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
       <ion-buttons slot="start">
         <ion-menu-button autoHide="false"></ion-menu-button>
       </ion-buttons>
-    <ion-title class="title">
-      New reservation
-    </ion-title>
-  </ion-toolbar>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -114,7 +111,6 @@
       </ion-col>
     </ion-row>
 
-      <ion-list>
       <ion-radio-group [(ngModel)]="selected" (ngModelChange)="update()">
         <div *ngIf=" results.length===0">
           <ion-row>
@@ -128,22 +124,26 @@
           </ion-row>
         </div>
         <div *ngIf=" results.length!==0">
-                <ion-row *ngFor ="let result of results ">
+                  <ion-card *ngFor ='let result of results; let i= index' class="room-card">
+                    <ion-slides>
+                      <ion-slide *ngFor="let url of imgs[i]">
+                        <ion-img [src]="url |async" alt='no images available'></ion-img>
+                      </ion-slide>
+                    </ion-slides>
+                    <ion-card-header>
+                      <ion-card-title>{{result.roomType}} N° {{result.roomNumber}}</ion-card-title>
+                      <ion-card-subtitle> {{result.price}} dh/night</ion-card-subtitle>
+                    </ion-card-header>
                   <ion-col>
-                    <ion-item >
                       <ion-label>
-                        <h3>Room {{result.roomNumber}} </h3>
-                        <p>{{result.roomType}}</p>
-                        <h3> {{result.price}} dh/night</h3>
+                        <ion-button class="check-button" (click)="checkRoom(result)">check</ion-button>
                       </ion-label>
-                      <ion-radio value="{{result.roomNumber}}"></ion-radio>
-                    </ion-item>
+                      <ion-radio class="rardio" value="{{result.roomNumber}}"></ion-radio>
                   </ion-col>
-                </ion-row>
-          </div>
+                </ion-card>
+        </div>
 
       </ion-radio-group>
-    </ion-list>
 
     <ion-card class="summary-card">
       <ion-card-header class="summary-card-header">Summary of the reservation </ion-card-header>

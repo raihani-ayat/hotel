@@ -10,13 +10,10 @@ ion-content{
   height: fit-content;
   max-width: 1000px;
 
-  .calendar-icon{
-    color: #0f0f0f;
-    margin-right: 5px;
-  }
+
 
   ion-item{
-    --margin: 1rem auto;
+    margin: 0.8rem auto;
     --background:#FEFDFD;
     --color:#0f0f0f;
 
@@ -56,4 +53,43 @@ ion-content{
 
 }
 
+.upload-item-container{
+  margin-top: 2rem;
+  margin-left: 1rem;
+}
 
+.label{
+  color: #0f0f0f;
+  text-align: left;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.upload{
+  margin: 0.4rem auto;
+  padding: auto;
+ --color: #0f0f0f;
+ --border-color:#0f0f0f;
+ --border-width:1px;
+
+}
+
+ion-toolbar{
+  --background: #F6F3F1;
+  --border-color: #F6F3F1;
+  --border-width: 1px;
+  --color: #0f0f0f;
+
+  ion-menu-button{
+    --color: #0f0f0f;
+  }
+}
+
+.back{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  --color: #0f0f0f;
+  font-size: 14px;
+  font-weight: bold;
+
+}

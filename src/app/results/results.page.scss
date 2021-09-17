@@ -137,3 +137,44 @@ ion-list p{
   margin: auto;
   text-align: center;
 }
+
+ion-toolbar{
+  --background: #F6F3F1;
+  --border-color: #F6F3F1;
+  --border-width: 1px;
+  --color: #0f0f0f;
+
+  ion-menu-button{
+    --color: #0f0f0f;
+  }
+}
+
+.back{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  --color: #0f0f0f;
+  font-size: 14px;
+  font-weight: bold;
+
+}
+
+
+.room-card{
+  --background:#FEFDFD;
+  ion-card-title{
+    --color:#0f0f0f;
+  }
+  ion-card-subtitle{
+    --color:#0f0f0f;
+  }
+
+  ion-radio{
+    margin-left: 12rem;
+    --color:#0f0f0f;
+  }
+}
+
+.check-button{
+  --background:#0f0f0f;
+  margin: auto auto 1rem 1rem;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { User } from '../models/user';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -25,7 +26,8 @@ export class SignUpPage implements OnInit {
     public afs: AngularFirestore,
     public as: AuthServiceService,
     public toastController: ToastController,
-    public ac: AppComponent) {
+    public ac: AppComponent,
+    public location: Location) {
       this.ac.getMenu();
       this.usersCollectionRef = this.afs.collection('users');
    }
@@ -62,6 +64,10 @@ export class SignUpPage implements OnInit {
       });
       toast.present();
     }
+  }
+
+  goBack(){
+    this.location.back();
   }
 
 }

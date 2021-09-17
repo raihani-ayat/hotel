@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BookingService } from '../Services/booking.service';
 import { Reservation } from '../models/reservation';
 import { AppComponent } from '../app.component';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-admin-home',
@@ -16,7 +18,7 @@ export class AdminHomePage implements OnInit {
   confirmedReservationsNumber= 0;
   totalReservationsNumber= 0;
 
-  constructor(public bs: BookingService, public ac: AppComponent) {
+  constructor(public bs: BookingService, public ac: AppComponent, public location: Location) {
     this.ac.getMenu();
     this.bs.getBookingbyStatus();
     this.bs.delay(3000).then(()=>{
@@ -31,6 +33,10 @@ export class AdminHomePage implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+  goBack(){
+    this.location.back();
   }
 
 }

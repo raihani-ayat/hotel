@@ -10,9 +10,9 @@ import { BookingService } from './Services/booking.service';
 })
 export class AppComponent implements OnInit {
 public authed;
-public email;
-admin$= false;
-user$=false;
+admin= false;
+user=false;
+
   outNav= [
   {
     title : 'Subscribe',
@@ -74,14 +74,22 @@ user$=false;
         ];
 
   constructor(public auth: AuthServiceService, public bs: BookingService, public fAuth: AngularFireAuth) {
+    this.admin= false;
+    this.user=false;
     this.fAuth.authState.subscribe(user => {
-        if(user){
+        if(!user){
+          this.authed=false;
+          console.log(false);
+        }
+        else{
           this.authed=true;
           if(user.email==='admin@admin.com'){
-            this.admin$=true;
+            this.admin=true;
+            console.log('admin');
           }
           else{
-            this.user$=true;
+            this.user=true;
+            console.log('user');
           }
         }
     });
@@ -92,13 +100,19 @@ user$=false;
       if(user){
         this.authed=true;
         if(user.email==='admin@admin.com'){
-          this.admin$=true;
+          this.admin=true;
         }
         else{
-          this.user$=true;
+          this.user=true;
         }
       }
     });
+  }
+
+  logout(){
+    this.admin=false;
+    this.user=false;
+    this.authed=false;
   }
 
 

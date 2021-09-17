@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { Reservation } from '../models/reservation';
 import { BookingService } from '../Services/booking.service';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -22,7 +23,7 @@ export class UserReservationsPage implements OnInit {
 
   constructor(public bs: BookingService, public auth: AngularFireAuth,public afs: AngularFirestore
     ,public toastController: ToastController, public router: Router, public aut: AuthServiceService,
-    public ac: AppComponent ) {
+    public ac: AppComponent, public location: Location ) {
       this.ac.getMenu();
       this.reservationCollectionRef = this.afs.collection('reservation');
       this.auth.authState.subscribe(user=>{
@@ -51,5 +52,9 @@ async delete(item){
       toast.present();
       window.location.reload();
   });
+  }
+
+  goBack(){
+    this.location.back();
   }
 }

@@ -6,7 +6,7 @@
         </ion-toolbar>
       </ion-header>
       <ion-content>
-        <div *ngIf="authed && user$">
+        <div *ngIf="authed && user">
           <ion-list *ngFor="let pages of userNav">
           <ion-menu-toggle auto-hide="true">
             <ion-item [href]="pages.url" routerDirection="forward">
@@ -16,7 +16,7 @@
           </ion-menu-toggle>
           </ion-list>
       </div>
-        <div *ngIf="authed && admin$">
+        <div *ngIf="authed && admin">
           <ion-list *ngFor="let pages of adminNav">
           <ion-menu-toggle auto-hide="true">
             <ion-item [href]="pages.url" routerDirection="forward">

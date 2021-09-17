@@ -6,6 +6,7 @@ import { AuthServiceService } from '../Services/auth-service.service';
 import { ToastController } from '@ionic/angular';
 import { AppComponent } from '../app.component';
 import { BookingService } from '../Services/booking.service';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class ForgottenPasswordPage implements OnInit {
     public ac: AppComponent,
     public auth: AuthServiceService,
     public fAuth: AngularFireAuth,
-    public toastController: ToastController,) {
+    public toastController: ToastController,
+    public location: Location) {
     this.ac.getMenu();
    }
 
@@ -59,6 +61,10 @@ export class ForgottenPasswordPage implements OnInit {
       });
       toast.present();
     }
+  }
+
+  goBack(){
+    this.location.back();
   }
 
 }

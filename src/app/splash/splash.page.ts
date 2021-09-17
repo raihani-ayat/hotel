@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 @Component({
@@ -9,10 +10,20 @@ import { Router } from '@angular/router';
 })
 export class SplashPage implements OnInit {
 
-  constructor(public router: Router) {
-    setTimeout(()=>{
-      this.router.navigateByUrl('login');
-    },3000);
+  constructor(public router: Router,public fAuth: AngularFireAuth) {
+    setTimeout(()=>{this.fAuth.authState.subscribe(user => {
+      if(user){
+        if(user.email==='admin@admin.com'){
+          this.router.navigateByUrl('/admin-home');
+        }
+        else{
+          this.router.navigateByUrl('/home');
+        }
+      }else{
+        this.router.navigateByUrl('/home');
+      }
+  });
+    },2000);
   }
 
   ngOnInit() {

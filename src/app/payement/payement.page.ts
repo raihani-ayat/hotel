@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { BookingService } from '../Services/booking.service';
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
@@ -22,7 +23,7 @@ export class PayementPage implements OnInit {
   cancelDate;
 
   constructor(public bs: BookingService,public router: Router, public fs: AngularFirestore,public auth: AuthServiceService,
-    public toastController: ToastController, public ac: AppComponent, public fAuth: AngularFireAuth) {
+    public toastController: ToastController, public ac: AppComponent, public fAuth: AngularFireAuth, public location: Location) {
       this.ac.getMenu();
     this.room= this.bs.selectedOption;
     this.totalPrice= this.bs.fullPrice;
@@ -53,6 +54,14 @@ export class PayementPage implements OnInit {
           });
         });
       }});
+  }
+
+  goBack(){
+    this.location.back();
+  }
+
+  payWithPaypal(){
+    this.bs.payWithPaypal();
   }
 }
 

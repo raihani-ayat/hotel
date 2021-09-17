@@ -1,10 +1,13 @@
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable prefer-arrow/prefer-arrow-functions */
 /* eslint-disable prefer-const */
 import { Injectable , NgZone} from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
-import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
+import { Platform } from '@ionic/angular';
 
 
 
@@ -18,7 +21,8 @@ export class AuthServiceService {
   public uid: any;
   public userEmail: string;
   public loggedInUser;
-  constructor( public router: Router, public auth: AngularFireAuth, public ngZone: NgZone ) {
+  constructor( public router: Router, public auth: AngularFireAuth, public ngZone: NgZone, public fb: Facebook,
+    public platform: Platform ) {
    }
 
   public logout(){
@@ -40,7 +44,7 @@ export class AuthServiceService {
   }
 
   facebookAuth(){
-    return this.authLogin(    new firebase.default.auth.FacebookAuthProvider());
+    return this.authLogin(new firebase.default.auth.FacebookAuthProvider());
   }
   authLogin(provider) {
     return this.auth.signInWithPopup(provider)
@@ -53,24 +57,31 @@ export class AuthServiceService {
     });
   }
 
-   /* async fblogin() {
-
-    this.fb.login(['email'])
-      .then((response: FacebookLoginResponse) => {
-        this.onLoginSuccess(response);
-        console.log(response.authResponse.accessToken);
-      }).catch((error) => {
-        console.log(error);
-        alert('error:' + error);
+  doLogin() {
+    if(this.platform.is('cordova')){
+      this.fb.login(['email'])
+    .then((response: FacebookLoginResponse) => {
+      this.loginWithFacebook(response.authResponse.accessToken).then(()=>{
+        this.router.navigateByUrl('/home');
       });
+    }).catch((error) => {
+      alert('error:' + JSON.stringify(error));
+    });
+    } else{
+      this.fbLogin();
+    }
   }
 
-  onLoginSuccess(res: FacebookLoginResponse) {
-    const credential = this.fAuth.signInWithCredential..credential(res.authResponse.accessToken);
-    this.fAuth.signInWithCredential(credential)
-      .then((response) => {
-        this.router.navigate(['/home']);
-      });
+  loginWithFacebook(accessToken) {
+      const credential = firebase.default.auth.FacebookAuthProvider
+          .credential(accessToken);
+      return this.auth.signInWithCredential(credential);
+  }
 
-  }*/
+  fbLogin(): Promise<any> {
+    return this.auth.signInWithPopup(new firebase.default.auth.FacebookAuthProvider()).then(()=>{
+      this.router.navigateByUrl('/home');
+    });
+  }
+
 }
