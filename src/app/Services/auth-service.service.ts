@@ -25,10 +25,6 @@ export class AuthServiceService {
     public platform: Platform ) {
    }
 
-  public logout(){
-    this.auth.signOut();
-    console.log('out');
-  }
 
   async loggedIn(){
       this.auth.user.subscribe((data=>{
@@ -40,7 +36,10 @@ export class AuthServiceService {
   }
 
   googleAuth() {
-    return this.authLogin(new firebase.default.auth.GoogleAuthProvider());
+    //return this.authLogin(new firebase.default.auth.GoogleAuthProvider());
+    this.auth.signInWithPopup(new firebase.default.auth.GoogleAuthProvider()).then(()=>{
+      this.router.navigateByUrl('/home');
+    });
   }
 
   facebookAuth(){
@@ -59,14 +58,16 @@ export class AuthServiceService {
 
   doLogin() {
     if(this.platform.is('cordova')){
-      this.fb.login(['email'])
+      this.fbLogin();
+
+      /*this.fb.login(['email'])
     .then((response: FacebookLoginResponse) => {
       this.loginWithFacebook(response.authResponse.accessToken).then(()=>{
         this.router.navigateByUrl('/home');
       });
     }).catch((error) => {
       alert('error:' + JSON.stringify(error));
-    });
+    });*/
     } else{
       this.fbLogin();
     }
